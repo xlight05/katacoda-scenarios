@@ -1,6 +1,6 @@
 {
     "noindex": true,
-    "title": "Run Commands Automatically",
+    "title": "Cellery Test",
     "description": "Automatically run commands in the foreground and background when a scenario starts",
     "details": {
         "steps": [
