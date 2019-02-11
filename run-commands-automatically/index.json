@@ -31,7 +31,7 @@
     "files": [],
     "environment": {
         "hidefinish": true,
-        "uilayout": "terminal"
+        "uilayout": "editor-terminal"
     },
     "backend": {
         "imageid": "kubernetes"
