@@ -15,5 +15,9 @@ wget https://github.com/xlight05/katacoda-scenarios/releases/download/0.0.1/cell
 unzip celleryio.zip
 sudo cp -r celleryio /usr/lib/ballerina/ballerina-0.990.2/lib/repo/
 
+git clone https://github.com/xlight05/distribution
+cd distribution/installer/scripts/cellery-runtime-deployer
+cat katakoda.sh | bash -s -- kubeadm
+
 #Cellery Dev
 #Cellery full
