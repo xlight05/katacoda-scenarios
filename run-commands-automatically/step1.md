@@ -1,20 +1,16 @@
-Commands can be run automatically in the foreground and background when a scenario starts and when a step loads.
+## Preparing the enviroment.
 
-The `index.json` file contains the scenario structure. 
+Cellery installation will start automatically. This can take several miniutes.
+This installs a Kuberentes runtime, Cellery Runtime (Dev setup) and Cellery CLI.
+Please wait for katacoda to finish cellery installation.
 
-Within the `intro` block and for each step, two files can be defined under `courseData` and `code`.
+Once everything is done, run `cellery version`{{execute}} to check if everything is working properly.
 
-`courseData` defines a script which runs in the background.
+## Configuring the cluster
 
-`code` defines the commands to run in the foreground.
+Type `cellery setup`{{execute}} to configure your cluster.
+Since we have a preconfigured cellery runtime here, Select `Select from existing cluster` and select your cluster.
 
-<pre>
-"intro": {
-    "text": "intro.md",
-    "courseData": "background.sh",
-    "code": "foreground.sh",
-    "credits": ""
-}
-</pre>
+Congradlations.! You have sucessfully configured cellery. 
 
-When the user proceeds to the next step, additional scripts can be run.
+You will deploy a hello world cell in next step.

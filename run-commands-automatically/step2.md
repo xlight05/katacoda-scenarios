@@ -1,14 +1,14 @@
-By having scripts run for each step it's possible to simulate activities and actions under the covers. Such as modifying settings or causing additional situations for the user to complete.
+## Initializng Cellery Project
 
-The syntax is the same as when defining scripts for intro.
+`cellery init`{{execute}} allows you to create a cellery project.
+Enter `hello-world`{{execute}} as the project name
+This will create a folder with your project name. 
 
-<pre>
-{
-    "title": "Step 2",
-    "courseData": "step2-background.sh",
-    "code": "step2-foreground.sh",
-    "text": "step2.md"
-}
-</pre>
+Use editor to go to your project file and open hello-world.bal
 
-The next step will explain how to handle the user having to wait for a task to complete.
+## Initializng Cellery Project
+
+You will see an example hello world cell in the folder.
+
+Um.. Hello world cell explanation goes here :)
+
