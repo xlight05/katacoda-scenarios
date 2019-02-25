@@ -18,4 +18,5 @@ sudo cp -r celleryio /usr/lib/ballerina/ballerina-0.990.2/lib/repo/
 echo "Installing Cellery runtime"
 git clone https://github.com/xlight05/distribution
 cd distribution/installer/scripts/cellery-runtime-deployer
+git checkout katakoda
 cat katakoda.sh | bash -s -- kubeadm
