@@ -14,7 +14,9 @@ sudo cp cellery-0.1.0.jar /usr/lib/ballerina/ballerina-0.990.2/bre/lib
 wget https://github.com/xlight05/katacoda-scenarios/releases/download/0.0.1/celleryio.zip
 unzip celleryio.zip
 sudo cp -r celleryio /usr/lib/ballerina/ballerina-0.990.2/lib/repo/
-sudo cp  celleryio ~/.ballerina/repo/
+mkdir -p ~/.ballerina/repo/
+sudo cp  -r celleryio ~/.ballerina/repo/
+
 
 echo "Installing Cellery runtime"
 git clone https://github.com/xlight05/distribution
