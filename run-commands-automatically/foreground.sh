@@ -21,4 +21,4 @@ cd distribution/installer/scripts/cellery-runtime-deployer
 git checkout katakoda
 cat katakoda.sh | bash -s -- kubeadm
 
-kubectl apply -f https://gist.githubusercontent.com/xlight05/43fd34f12e161b0998ef349f1de0a947/raw/b232dcc2ec79be5bf9816da165083198299145d0/istio-pilot.yaml
+kubectl apply -f https://gist.githubusercontent.com/xlight05/43fd34f12e161b0998ef349f1de0a947/raw/1fb60d08a49abe43aba41cb2918748c7fb176c1d/istio-pilot.yaml
