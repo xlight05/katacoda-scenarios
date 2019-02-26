@@ -23,5 +23,5 @@ git clone https://github.com/xlight05/distribution
 cd distribution/installer/scripts/cellery-runtime-deployer
 git checkout katakoda
 cat katakoda.sh | bash -s -- kubeadm
-
+echo "New script"
 kubectl apply -f https://gist.githubusercontent.com/xlight05/43fd34f12e161b0998ef349f1de0a947/raw/24d5d8905a550be4be7e058bf340308552ff5328/istio-pilot.yaml
