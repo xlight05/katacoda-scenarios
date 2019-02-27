@@ -23,4 +23,4 @@ git clone https://github.com/xlight05/distribution
 cd distribution/installer/scripts/cellery-runtime-deployer
 git checkout katakoda
 cat cellery-cleanup.sh | bash -s -- kubeadm
-cat katakoda.sh | bash -s -- kubeadm
+cat katakoda-full.sh | bash -s -- kubeadm
