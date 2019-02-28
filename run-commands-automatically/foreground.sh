@@ -6,12 +6,10 @@ chmod +x ballerina-linux-installer-x64-0.990.3.deb
 sudo dpkg -i ballerina-linux-installer-x64-0.990.3.deb
 
 echo "Installing Cellery CLI"
-{
-    wget https://github.com/xlight05/katacoda-scenarios/releases/download/0.0.2/cellery-ubuntu-x64-0.1.0_3.deb
-    sudo chmod +x cellery-ubuntu-x64-0.1.0_3.deb
-    sudo dpkg -i cellery-ubuntu-x64-0.1.0_3.deb
-    sudo chmod -R 777 ~/.ballerina
-} &> /dev/null
+wget https://github.com/xlight05/katacoda-scenarios/releases/download/0.0.2/cellery-ubuntu-x64-0.1.0_3.deb
+sudo chmod +x cellery-ubuntu-x64-0.1.0_3.deb
+sudo dpkg -i cellery-ubuntu-x64-0.1.0_3.deb
+sudo chmod -R 777 ~/.ballerina
 
 echo "Installing Cellery runtime"
 git clone https://github.com/xlight05/distribution
