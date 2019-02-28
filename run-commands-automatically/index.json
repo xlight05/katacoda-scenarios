@@ -31,7 +31,10 @@
     "files": [],
     "environment": {
         "hidefinish": true,
-        "uilayout": "editor-terminal"
+        "uilayout": "editor-terminal",
+        "showdashboard": true,
+        "dashboards": [
+            {"name": "Placeholder", "href": "https://wso2.com"}]
     },
     "backend": {
         "imageid": "kubernetes"
