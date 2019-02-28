@@ -1,7 +1,6 @@
 #!/bin/bash
 
 launch.sh
-set -x
 echo "Installing ballerina"
 wget https://product-dist.ballerina.io/downloads/0.990.3/ballerina-linux-installer-x64-0.990.3.deb
 chmod +x ballerina-linux-installer-x64-0.990.3.deb
