@@ -1,3 +1,5 @@
+#!/bin/bash
+
 launch.sh
 set -x
 echo "Installing ballerina"
