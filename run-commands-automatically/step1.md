@@ -6,11 +6,12 @@ Please wait for katacoda to finish cellery installation.
 
 Once everything is done, run `cellery version`{{execute}} to check if everything is working properly.
 
-## Configuring the cluster
+## Initializing the project
 
-Type `cellery setup`{{execute}} to configure your cluster.
-Since we have a preconfigured cellery runtime here, Select `Select from existing cluster` and select your cluster.
+Type `cellery init`{{execute}} to initialize the project.
+You will get prompt askinging for your project name.
+Enter `Hello-World`{{execute}} as the project name.
 
-Congradlations.! You have sucessfully configured cellery. 
-
-You will deploy a hello world cell in next step.
+You will see a folder has been created for your project.
+You can switch your directory in to the project using
+`cd Hello-World`{{execute}}
