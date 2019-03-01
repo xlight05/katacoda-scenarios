@@ -33,3 +33,5 @@ wget https://gist.githubusercontent.com/xlight05/3fa261aaef8d32dac4bc4b9d90f0dfd
 sed -i 's/172.17.17.100/[[HOST_IP]]/g' service-nodeport.yaml
 kubectl apply -f service-nodeport.yaml
 sudo rm service-nodeport.yaml
+
+source <(kubectl completion bash)
