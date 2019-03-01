@@ -21,9 +21,9 @@ git checkout katakoda
 cat katakoda.sh | bash -s -- kubeadm
 
 #Cleanup
-cd ~/
-sudo rm -r distribution
-sudo rm cellery-ubuntu-x64-0.1.0_3.deb
-sudo rm ballerina-linux-installer-x64-0.990.3.deb
-mkdir workspace
-cd workspace
+# cd ~/
+# sudo rm -r distribution
+# sudo rm cellery-ubuntu-x64-0.1.0_3.deb
+# sudo rm ballerina-linux-installer-x64-0.990.3.deb
+# mkdir workspace
+# cd workspace
