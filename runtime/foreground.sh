@@ -10,7 +10,7 @@ wget https://github.com/xlight05/katacoda-scenarios/releases/download/0.0.2/cell
 sudo chmod +x cellery-ubuntu-x64-0.1.0_3.deb
 sudo dpkg -i cellery-ubuntu-x64-0.1.0_3.deb
 sudo chmod -R 777 ~/.ballerina
-
+sudo apt-get update
 sudo apt-get install git
 sudo apt-get purge --allow-change-held-packages kubelet kubeadm kubectl docker.io docker-ce
 #Installing YAMLS use this only if katacoda supports 
