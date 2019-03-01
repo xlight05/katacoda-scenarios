@@ -20,10 +20,16 @@ cd distribution/installer/scripts/cellery-runtime-deployer
 git checkout katakoda
 cat katacoda-test.sh | bash -s -- kubeadm
 
-#Cleanup
-# cd ~/
-# sudo rm -r distribution
-# sudo rm cellery-ubuntu-x64-0.1.0_3.deb
-# sudo rm ballerina-linux-installer-x64-0.990.3.deb
-# mkdir workspace
-# cd workspace
+
+Cleanup
+cd ~/
+sudo rm -r distribution
+sudo rm cellery-ubuntu-x64-0.1.0_3.deb
+sudo rm ballerina-linux-installer-x64-0.990.3.deb
+mkdir workspace
+cd workspace
+
+wget https://gist.githubusercontent.com/xlight05/3fa261aaef8d32dac4bc4b9d90f0dfd4/raw/d465bf3559392a7061747afa551b591e605c823c/service-nodeport.yaml
+sed -i 's/172.17.17.100/[[HOST_IP]]/g' service-nodeport.yaml
+kubectl apply -f service-nodeport.yaml
+sudo rm service-nodeport.yaml
