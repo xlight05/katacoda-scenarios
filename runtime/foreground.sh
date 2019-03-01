@@ -12,6 +12,7 @@ sudo dpkg -i cellery-ubuntu-x64-0.1.0_3.deb
 sudo chmod -R 777 ~/.ballerina
 
 sudo apt-get install git
+sudo apt-get purge --allow-change-held-packages kubelet kubeadm kubectl docker.io docker-ce
 #Installing YAMLS use this only if katacoda supports 
 echo "Installing Cellery runtime"
 git clone https://github.com/xlight05/distribution
