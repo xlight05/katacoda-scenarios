@@ -32,7 +32,7 @@
     "uilayout": "editor-terminal",
     "showdashboard": true,
     "dashboards": [
-        {"name": "Placeholder", "href": "https://wso2.com"}]
+      {"name": "Port 80", "port": 80}]
   },
   "backend": {
     "imageid": "wso2"
