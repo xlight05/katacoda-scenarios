@@ -35,3 +35,4 @@ kubectl apply -f service-nodeport.yaml
 sudo rm service-nodeport.yaml
 
 source <(kubectl completion bash)
+
