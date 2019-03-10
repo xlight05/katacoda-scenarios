@@ -19,7 +19,7 @@ echo "Installing Cellery runtime"
 git clone https://github.com/xlight05/distribution
 cd distribution/installer/scripts/cellery-runtime-deployer
 git checkout katakoda
-cat katacoda-full.sh | bash -s -- kubeadm
+cat katakoda-full.sh | bash -s -- kubeadm
 
 
 #Cleanup
