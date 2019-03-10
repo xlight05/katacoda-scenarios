@@ -17,9 +17,10 @@
 launch.sh
 echo "Installing Cellery runtime"
 git clone https://github.com/xlight05/distribution
+cd distribution
 git checkout katakoda
-sed -i 's/wso2-apim/[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/g' distribution/installer/k8s-artefacts/global-apim/conf/carbon.xml; 
-cd distribution/installer/scripts/cellery-runtime-deployer
+sed -i 's/wso2-apim/[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/g' installer/k8s-artefacts/global-apim/conf/carbon.xml; 
+cd installer/scripts/cellery-runtime-deployer
 
 cat katakoda-full.sh | bash -s -- kubeadm
 
