@@ -30,7 +30,7 @@ sudo rm -r distribution
 mkdir workspace
 cd workspace
 
-wget https://gist.githubusercontent.com/xlight05/3fa261aaef8d32dac4bc4b9d90f0dfd4/raw/fc657eea0c75650d595e5bb07d34427efa428be0/service-nodeport.yaml
+wget https://gist.githubusercontent.com/xlight05/3fa261aaef8d32dac4bc4b9d90f0dfd4/raw/43cd47d6e5c3e9b61cf2c8e3a1821c3669157b08/service-nodeport.yaml
 sed -i 's/172.17.17.100/[[HOST_IP]]/g' service-nodeport.yaml
 wget https://gist.githubusercontent.com/xlight05/73f50180840c40d25f9c9c7865054090/raw/8bed684901773642e938fde75e6ef222c6c6a716/ingress.yaml
 sed -i 's/HOST_SUBDOMAIN/[[HOST_SUBDOMAIN]]/g' -ingress.yaml; sed -i 's/KATACODA_HOST/[[KATACODA_HOST]]/g' ingress.yaml; 
