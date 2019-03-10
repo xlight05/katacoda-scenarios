@@ -17,13 +17,16 @@
 launch.sh
 echo "Installing Cellery runtime"
 git clone https://github.com/xlight05/distribution
+sed -i 's/wso2-apim/[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/g' distribution/installer/k8s-artefacts/global-apim/conf/carbon.xml; 
 cd distribution/installer/scripts/cellery-runtime-deployer
 git checkout katakoda
+
 cat katakoda-full.sh | bash -s -- kubeadm
 
 
 #Cleanup
 cd ~/
+cat distribution/installer/k8s-artefacts/global-apim/conf/carbon.xml
 sudo rm -r distribution
 # sudo rm cellery-ubuntu-x64-0.1.0_3.deb
 # sudo rm ballerina-linux-installer-x64-0.990.3.deb
