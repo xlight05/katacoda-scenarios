@@ -14,6 +14,7 @@
 # sudo apt-get install git
 # sudo apt-get purge --allow-change-held-packages kubelet kubeadm kubectl docker.io docker-ce
 #Installing YAMLS use this only if katacoda supports 
+launch.sh
 echo "Installing Cellery runtime"
 git clone https://github.com/xlight05/distribution
 cd distribution/installer/scripts/cellery-runtime-deployer
@@ -21,7 +22,7 @@ git checkout katakoda
 cat katacoda-full.sh | bash -s -- kubeadm
 
 
-Cleanup
+#Cleanup
 cd ~/
 sudo rm -r distribution
 # sudo rm cellery-ubuntu-x64-0.1.0_3.deb
