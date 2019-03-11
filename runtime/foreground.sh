@@ -19,15 +19,13 @@ echo "Installing Cellery runtime"
 git clone https://github.com/xlight05/distribution
 cd distribution
 git checkout katakoda
-sed -i 's/wso2-apim/[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/g' installer/k8s-artefacts/global-apim/conf/carbon.xml; 
+sed -i 's/wso2-apim/[[HOST_SUBDOMAIN]]-2000-[[KATACODA_HOST]].environments.katacoda.com/g' installer/k8s-artefacts/global-apim/conf/carbon.xml; 
 cd installer/scripts/cellery-runtime-deployer
 cat katakoda-full.sh | bash -s -- kubeadm
 
 #Cleanup
 cd ~/
 cat distribution/installer/k8s-artefacts/global-apim/conf/carbon.xml
-# kubectl delete configmap -n cellery-system gw-conf
-# kubectl create configmap gw-conf --from-file=distribution/installer/k8s-artefacts/global-apim/conf -n cellery-system
 sudo rm -r distribution
 # sudo rm cellery-ubuntu-x64-0.1.0_3.deb
 # sudo rm ballerina-linux-installer-x64-0.990.3.deb
@@ -36,8 +34,9 @@ cd workspace
 
 wget https://gist.githubusercontent.com/xlight05/3fa261aaef8d32dac4bc4b9d90f0dfd4/raw/43cd47d6e5c3e9b61cf2c8e3a1821c3669157b08/service-nodeport.yaml
 sed -i 's/172.17.17.100/[[HOST_IP]]/g' service-nodeport.yaml
-wget https://gist.githubusercontent.com/xlight05/73f50180840c40d25f9c9c7865054090/raw/8bed684901773642e938fde75e6ef222c6c6a716/ingress.yaml
-sed -i 's/HOST_SUBDOMAIN/[[HOST_SUBDOMAIN]]/g' ingress.yaml; sed -i 's/KATACODA_HOST/[[KATACODA_HOST]]/g' ingress.yaml; 
+wget https://gist.githubusercontent.com/xlight05/73f50180840c40d25f9c9c7865054090/raw/99ddfe2869d055b271da07e21fb6d7f6f964b646/ingress.yaml
+sed -i 's/wso2-apim-gateway/[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/g' ingress.yaml;
+sed -i 's/wso2-apim/[[HOST_SUBDOMAIN]]-2000-[[KATACODA_HOST]].environments.katacoda.com/g' ingress.yaml;
 kubectl apply -f service-nodeport.yaml
 kubectl apply -f ingress.yaml -n cellery-system
 sudo rm service-nodeport.yaml
