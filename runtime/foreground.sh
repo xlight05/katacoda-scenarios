@@ -32,7 +32,7 @@ sudo rm -r distribution
 mkdir workspace
 cd workspace
 
-wget https://gist.githubusercontent.com/xlight05/3fa261aaef8d32dac4bc4b9d90f0dfd4/raw/43cd47d6e5c3e9b61cf2c8e3a1821c3669157b08/service-nodeport.yaml
+wget https://gist.githubusercontent.com/xlight05/3fa261aaef8d32dac4bc4b9d90f0dfd4/raw/89daca1a56721b29efaddece2b954b7c7b5de8be/service-nodeport.yaml
 sed -i 's/172.17.17.100/[[HOST_IP]]/g' service-nodeport.yaml
 wget https://gist.githubusercontent.com/xlight05/73f50180840c40d25f9c9c7865054090/raw/99ddfe2869d055b271da07e21fb6d7f6f964b646/ingress.yaml
 sed -i 's/wso2-apim-gateway/[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/g' ingress.yaml;
