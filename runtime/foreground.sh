@@ -26,8 +26,8 @@ cat katakoda-full.sh | bash -s -- kubeadm
 #Cleanup
 cd ~/
 cat distribution/installer/k8s-artefacts/global-apim/conf/carbon.xml
-kubectl delete configmap -n cellery-system gw-conf
-kubectl create configmap gw-conf --from-file=distribution/installer/k8s-artefacts/global-apim/conf -n cellery-system
+# kubectl delete configmap -n cellery-system gw-conf
+# kubectl create configmap gw-conf --from-file=distribution/installer/k8s-artefacts/global-apim/conf -n cellery-system
 sudo rm -r distribution
 # sudo rm cellery-ubuntu-x64-0.1.0_3.deb
 # sudo rm ballerina-linux-installer-x64-0.990.3.deb
