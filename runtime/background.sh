@@ -1,7 +1,7 @@
 #!/bin/bash
 
 launch.sh
-echo "Installing Cellery runtime" <<< 'Installing Cellery runtime'
+cat <<< 'Installing Cellery runtime'
 git clone https://github.com/xlight05/distribution
 cd distribution
 git checkout katakoda
