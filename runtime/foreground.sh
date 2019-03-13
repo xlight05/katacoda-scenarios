@@ -14,6 +14,7 @@
 # sudo apt-get install git
 # sudo apt-get purge --allow-change-held-packages kubelet kubeadm kubectl docker.io docker-ce
 #Installing YAMLS use this only if katacoda supports 
+sleep 10
 echo "Installing Cellery runtime"
 git clone https://github.com/xlight05/distribution
 cd distribution
