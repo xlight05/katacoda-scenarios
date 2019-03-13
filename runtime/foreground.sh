@@ -14,11 +14,11 @@
 # sudo apt-get install git
 # sudo apt-get purge --allow-change-held-packages kubelet kubeadm kubectl docker.io docker-ce
 #Installing YAMLS use this only if katacoda supports 
-launch.sh &>/dev/null
+launch.sh
 echo "Installing Cellery runtime"
-git clone https://github.com/xlight05/distribution &>/dev/null
+git clone https://github.com/xlight05/distribution
 cd distribution
-git checkout katakoda &>/dev/null
+git checkout katakoda
 sed -i 's/wso2-apim/[[HOST_SUBDOMAIN]]-2000-[[KATACODA_HOST]].environments.katacoda.com/g' installer/k8s-artefacts/global-apim/conf/carbon.xml; 
 cd installer/scripts/cellery-runtime-deployer
 cat katakoda-full.sh | bash -s -- kubeadm
