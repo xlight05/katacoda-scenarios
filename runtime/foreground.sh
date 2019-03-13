@@ -14,7 +14,7 @@
 # sudo apt-get install git
 # sudo apt-get purge --allow-change-held-packages kubelet kubeadm kubectl docker.io docker-ce
 #Installing YAMLS use this only if katacoda supports 
-sleep 10
+launch.sh
 echo "Installing Cellery runtime"
 git clone https://github.com/xlight05/distribution
 cd distribution
@@ -25,12 +25,11 @@ cat katakoda-full.sh | bash -s -- kubeadm
 
 #Cleanup
 cd ~/
-cat distribution/installer/k8s-artefacts/global-apim/conf/carbon.xml
 sudo rm -r distribution
 # sudo rm cellery-ubuntu-x64-0.1.0_3.deb
 # sudo rm ballerina-linux-installer-x64-0.990.3.deb
-mkdir workspace
-cd workspace
+mkdir tutorial
+cd tutorial
 
 wget https://gist.githubusercontent.com/xlight05/3fa261aaef8d32dac4bc4b9d90f0dfd4/raw/89daca1a56721b29efaddece2b954b7c7b5de8be/service-nodeport.yaml
 sed -i 's/172.17.17.100/[[HOST_IP]]/g' service-nodeport.yaml

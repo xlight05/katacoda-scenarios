@@ -42,5 +42,3 @@
 # sudo rm service-nodeport.yaml
 
 # source <(kubectl completion bash)
-
-launch.sh
