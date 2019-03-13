@@ -30,6 +30,7 @@
   "environment": {
     "hidefinish": true,
     "uilayout": "editor-terminal",
+    "uieditorpath":"/root/tutorial",
     "showdashboard": true,
     "dashboards": [
       {"name": "APIM", "port": 2000},  
