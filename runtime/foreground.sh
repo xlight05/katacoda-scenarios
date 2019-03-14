@@ -6,13 +6,17 @@ git clone https://github.com/xlight05/distribution
 cd distribution
 git checkout katakoda
 sed -i 's/wso2-apim/[[HOST_SUBDOMAIN]]-2000-[[KATACODA_HOST]].environments.katacoda.com/g' installer/k8s-artefacts/global-apim/conf/carbon.xml; 
+rm installer/k8s-artefacts/global-apim/conf/datasources/master-datasources.xml
+wget https://raw.githubusercontent.com/xlight05/distribution/katakoda/installer/k8s-artefacts/global-apim/conf/datasources/master-datasources.xml
+mv master-datasources.xml ~/distribution/installer/k8s-artefacts/global-apim/conf/datasources/
+
+
 cd installer/scripts/cellery-runtime-deployer
 cat katakoda-full.sh | bash -s -- kubeadm
 
 #Cleanup
 cd ~/
 sudo rm -r distribution
-mkdir tutorial
 cd tutorial
 
 wget https://gist.githubusercontent.com/xlight05/3fa261aaef8d32dac4bc4b9d90f0dfd4/raw/89daca1a56721b29efaddece2b954b7c7b5de8be/service-nodeport.yaml
