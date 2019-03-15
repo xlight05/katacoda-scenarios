@@ -11,7 +11,6 @@ cat katakoda-full.sh | bash -s -- kubeadm
 #Cleanup
 cd ~/
 sudo rm -r distribution
-mkdir tutorial
 cd tutorial
 
 wget https://gist.githubusercontent.com/xlight05/3fa261aaef8d32dac4bc4b9d90f0dfd4/raw/89daca1a56721b29efaddece2b954b7c7b5de8be/service-nodeport.yaml
@@ -22,5 +21,6 @@ sed -i 's/wso2-apim/[[HOST_SUBDOMAIN]]-2000-[[KATACODA_HOST]].environments.katac
 kubectl apply -f service-nodeport.yaml
 kubectl apply -f ingress.yaml -n cellery-system
 sudo rm service-nodeport.yaml
+sudo rm ingress.yaml
 
 source <(kubectl completion bash)

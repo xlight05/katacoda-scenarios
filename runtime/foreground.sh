@@ -6,6 +6,7 @@ git clone https://github.com/xlight05/distribution
 cd distribution
 git checkout katakoda
 sed -i 's/wso2-apim/[[HOST_SUBDOMAIN]]-2000-[[KATACODA_HOST]].environments.katacoda.com/g' installer/k8s-artefacts/global-apim/conf/carbon.xml; 
+sed -i 's/WSO2UM_DB/WSO2CarbonDB/g' installer/k8s-artefacts/global-apim/conf/user-mgt.xml;
 rm installer/k8s-artefacts/global-apim/conf/datasources/master-datasources.xml
 wget https://raw.githubusercontent.com/xlight05/distribution/katakoda/installer/k8s-artefacts/global-apim/conf/datasources/master-datasources.xml
 mv master-datasources.xml ~/distribution/installer/k8s-artefacts/global-apim/conf/datasources/
