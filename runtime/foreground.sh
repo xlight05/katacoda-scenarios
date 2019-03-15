@@ -28,5 +28,6 @@ sed -i 's/wso2-apim/[[HOST_SUBDOMAIN]]-2000-[[KATACODA_HOST]].environments.katac
 kubectl apply -f service-nodeport.yaml
 kubectl apply -f ingress.yaml -n cellery-system
 sudo rm service-nodeport.yaml
+sudo rm ingress.yaml
 
 source <(kubectl completion bash)
