@@ -6,7 +6,8 @@ cd distribution
 git checkout katakoda
 sed -i 's/wso2-apim/[[HOST_SUBDOMAIN]]-2000-[[KATACODA_HOST]].environments.katacoda.com/g' installer/k8s-artefacts/global-apim/conf/carbon.xml; 
 cd installer/scripts/cellery-runtime-deployer
-cat katakoda-full.sh | bash -s -- kubeadm
+echo "Starting the cellery installation"
+cat katakoda-full.sh | bash -s -- kubeadms
 
 #Cleanup
 cd ~/
