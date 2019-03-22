@@ -1,2 +1,2 @@
 #!/bin/bash
-wait.sh
+/usr/local/bin/wait.sh
