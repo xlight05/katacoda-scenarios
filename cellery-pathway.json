@@ -5,7 +5,7 @@
     "courses": [
       {
         "course_id": "hello-world",
-        "title": "Cellery Hello world",
+        "title": "Hello world",
         "description": "A guide that deploys simple hello world with Cellery"
       }
     ]
