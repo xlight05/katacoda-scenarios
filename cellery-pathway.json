@@ -1,0 +1,13 @@
+{
+    "title": "Cellery tutorials",
+    "description": "This course contains series of tutorials about Cellery",
+    "icon": "fa-katacoda",
+    "courses": [
+      {
+        "course_id": "hello-world",
+        "title": "Cellery Hello world",
+        "description": "A guide that deploys simple hello world with Cellery"
+      }
+    ]
+  }
+  
