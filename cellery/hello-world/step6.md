@@ -11,7 +11,6 @@ In this step we will be pushing the docker image you just built.
 Replace `docker-username` with your dockerhub username and execute the following command
 `$docker push docker-username/hello-world`
 
-
 ### Rebuild the Cell file
 
 You have to replace the source of the component with your own docker image.
@@ -25,4 +24,3 @@ Run `cellery build orgName/ImageName:1.0.0`{{execute}} to build the cellery arti
 Run `cellery run orgName/ImageName:1.0.0`{{execute}} to deploy the cell
 
 Once it's ready you can click Web Cell tab to open the hello world page.
-

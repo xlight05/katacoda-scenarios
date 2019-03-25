@@ -4,19 +4,19 @@
   "details": {
     "steps": [
       {
-        "title": "Step 1",
+        "title": "Preparing the environment",
         "text": "step1.md"
       },
       {
-        "title": "Step 2",
+        "title": "Initializing the project",
         "text": "step2.md"
       },
       {
-        "title": "Step 3",
+        "title": "Cell explanation",
         "text": "step3.md"
       },
       {
-        "title": "Step 4",
+        "title": "Deploying the Cell",
         "text": "step4.md"
       },
       {
