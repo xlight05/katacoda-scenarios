@@ -6,7 +6,7 @@ Create the index.html file
 
 Copy and edit the following content in the editor.
 <pre class="file" data-filename="index.html" data-target="replace">
-```html
+<code>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +18,7 @@ Copy and edit the following content in the editor.
     </h1>
 </body>
 </html>
-```
+</code>
 </pre>
 
 Now you can dockerize the html file you created.  You can copy the following dockerfile to containerize the html
