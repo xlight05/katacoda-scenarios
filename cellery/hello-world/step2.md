@@ -1,12 +1,12 @@
-In this step you will be creating your cellery project. 
+In this step you will be creating your cellery project.
 
-You can initialize your cellery project with the following command.
-`cellery init`{{execute}} 
+You can initialize your cellery project with the following command.\
+`cellery init`{{execute}}
 
-Enter your project name in the terminal
-`hello-world`{{execute}} 
+Enter your project name in the terminal\
+`hello-world`{{execute}}
 
-It will create a folder for your project. Switch in to the newly created project
+It will create a folder for your project. Switch in to the newly created project\
 `cd hello-world`{{execute}}
 
 Cellery will automatically generate a hello world cell file for you. Since this is a hello world scenario, we can use the auto generated cell file.
