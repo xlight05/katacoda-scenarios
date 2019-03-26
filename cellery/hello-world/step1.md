@@ -5,7 +5,7 @@ You can see all the available commands using
 
 Don’t worry if it doesn’t make much sense, you will learn everything you need in this scenario.
 
-Run the below command to check if everything is ready
+Run the below command to check if everything is ready  
 `cellery version`{{execute}}
 
 If everything looks ok, you can proceed to the next step.
