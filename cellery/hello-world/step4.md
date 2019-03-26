@@ -1,5 +1,3 @@
-## Deploying the Cell
-
 It's time to build and run your cell file. 
 
 Cellery build  generates required artifacts that is required to deploy in kubernetes.
@@ -12,5 +10,3 @@ You can use the below command to see the status of the deployment.
 `cellery ps`{{execute}} 
 
 Once it's ready you can click Web Cell tab to open the hello world page.
-
-(TODO finalise accessing hello world cell)

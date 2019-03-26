@@ -1,21 +1,6 @@
 ## Modifying your Hello world
 
 In this step you will be deploying your own hello world as a cell. You can copy the following html hello world sample in to the file . You can edit the file as you like.
-<pre class="file" data-filename="index.html" data-target="replace">
-&lt;
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Hello World - Nginx Docker</title>
-</head>
-<body>
-    <h1>
-        Hello World
-    </h1>
-</body>
-</html>
-&gt;
-</pre>
 Create the index.html file
 `touch index.html`{{execute}}
 
