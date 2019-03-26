@@ -7,7 +7,7 @@ Enter your project name in the terminal
 `hello-world`{{execute}}
 
 It will create a folder for your project. Switch in to the newly created project  
-`cd hello-world`{{execute}}
+`cd tutorial/hello-world`{{execute}}
 
 Cellery will automatically generate a hello world cell file for you.
 
