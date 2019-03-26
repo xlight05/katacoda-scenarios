@@ -9,4 +9,3 @@ Run the below command to check if everything is ready
 `cellery version`{{execute}}
 
 If everything looks ok, you can proceed to the next step.
-new

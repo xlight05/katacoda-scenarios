@@ -3,7 +3,7 @@
   "description": "Demonstrates how to deploy a simple Hello world web page with cellery",
   "details": {
     "steps": [
-      {
+      { 
         "title": "Preparing the environment",
         "text": "step1.md"
       },
