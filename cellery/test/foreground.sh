@@ -109,3 +109,8 @@ sed -i 's/172.17.17.100/[[HOST_IP]]/g' service-nodeport.yaml
 kubectl apply -f service-nodeport.yaml
 sudo rm service-nodeport.yaml
 source <(kubectl completion bash)
+
+
+wget https://raw.githubusercontent.com/wso2-cellery/mesh-controller/master/samples/pet-store-yamls/pet-backend.yaml
+wget https://raw.githubusercontent.com/wso2-cellery/mesh-controller/master/samples/pet-store-yamls/pet-frontend.yaml
+sed -i 's/pet-store.com/[[HOST_SUBDOMAIN]]-2000-[[KATACODA_HOST]].environments.katacoda.com/g' pet-frontend.yaml;

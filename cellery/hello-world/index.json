@@ -52,7 +52,7 @@
     "showdashboard": true,
     "dashboards": [
       {
-        "name": "APIM",
+        "name": "Web Cell",
         "port": 2000
       }
     ]
