@@ -9,8 +9,12 @@ Enter your project name in the terminal
 It will create a folder for your project. Switch in to the newly created project  
 `cd hello-world`{{execute}}
 
-Cellery will automatically generate a hello world cell file for you. Since this is a hello world scenario, we can use the auto generated cell file.
+Cellery will automatically generate a hello world cell file for you.
 
-This scenario simply deploys a static Hello world web page written by HTML.
+Since this is a hello world scenario, we can use the auto generated cell file.
 
-You can examine cell that was created. It is kinda self explanatory however in next step we will be learning about each field detailed.
+This hello world cell simply deploys a static Hello world web page written by HTML.
+
+You can examine cell that was created from the editor. 
+
+It is kinda self explanatory however in next step we will be learning about each field detailed.
