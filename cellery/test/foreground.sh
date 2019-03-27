@@ -17,7 +17,7 @@
 # ------------------------------------------------------------------------
 
 #sleep 1; wait.sh
-
+start=$(date +%s)
 launch.sh
 git clone https://github.com/wso2-cellery/distribution.git
 
@@ -40,3 +40,5 @@ wget https://raw.githubusercontent.com/wso2-cellery/mesh-controller/af77d802c3bb
 sed -i 's/pet-store.com/[[HOST_SUBDOMAIN]]-2000-[[KATACODA_HOST]].environments.katacoda.com/g' pet-frontend.yaml;
 sed -i 's/idp.cellery-system/[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/g' pet-frontend.yaml;
 
+end=$(date +%s)
+echo "Took $(($end-$start)) seconds"
