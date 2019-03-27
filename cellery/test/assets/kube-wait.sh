@@ -21,10 +21,6 @@ function __pods_ready() {
 function __wait-until-pods-ready() {
   local period interval i pods
 
-  if [[ $# != 2 ]]; then
-    return 1
-  fi
-
   period=10000000000
   interval=5
 
@@ -39,5 +35,5 @@ function __wait-until-pods-ready() {
   return 1
 }
 
-__wait-until-pods-ready $@
+__wait-until-pods-ready
 # vim: ft=sh :
