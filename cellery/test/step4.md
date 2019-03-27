@@ -1,12 +1,14 @@
-It's time to build and run your cell file.
+It's time to build and run your cell file. 
 
 Build command executes the build function in your Cell file. The main purpose of this command is to generate the required component artifacts for kubernetes.  
-`cellery build orgName/ImageName:1.0.0`{{execute}}
+`cellery build wso2-cellery/hello-world-cell:1.0.0`{{execute}}
 
 The run command executes the run function in your Cell file. The main purpose of this command is to deploy your cell file inside kubernetes.  
-`cellery run orgName/ImageName:1.0.0`{{execute}}
+`cellery run wso2-cellery/hello-world-cell:1.0.0`{{execute}}
 
-You can specify any kind of logic inside above functions. We will be discussing advanced use cases in future scenarios.
+You can specify any kind of logic inside above functions.
+
+We will be discussing advanced use cases in future scenarios.
 
 You can use the below command to see the status of the deployment.  
 `cellery ps`{{execute}}

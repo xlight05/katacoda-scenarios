@@ -1,19 +1,14 @@
-In this step, you will be creating your cellery project.
+In this step, you will be creating your first Cellery project.
 
-You can initialize your cellery project with the following command.
+You can initialize your Cellery project with the following command, and this will auto generate the hello world cell project.  
 `cellery init`{{execute}}
 
-Enter your project name in the terminal
+Enter your project name in the terminal  
 `hello-world`{{execute}}
 
-It will create a folder for your project. Switch into the newly created project
+It will create a folder for your project. Switch into the newly created project  
 `cd hello-world`{{execute}}
 
-Cellery will automatically generate a hello world cell file for you.
-
-Since this is a hello world scenario, we can use the auto-generated cell file.
 This hello world cell simply deploys a static Hello world web page written by HTML.
 
-You can examine cell that was created from the editor.
-
-It is kinda self-explanatory however in the next step we will be learning about each field in detail.
+You can examine cell that was created from the editor, the inline comments will explain about each field and operationHowever, In the next step we will be learning about each field in detail.
