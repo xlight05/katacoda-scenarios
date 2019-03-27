@@ -54,7 +54,8 @@
       {
         "name": "Web Cell",
         "port": 2000
-      }
+      },
+      {"name": "Placeholder", "href": "https://[[HOST_SUBDOMAIN]]-2000-[[KATACODA_HOST]].environments.katacoda.com/items/"}
     ]
   },
   "backend": {
