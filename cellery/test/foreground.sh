@@ -15,5 +15,6 @@
 # limitations under the License
 #
 # ------------------------------------------------------------------------
-echo "Starting"
 sleep 1; wait.sh
+export ORG_NAME="wso2-cellery"
+export CELLERY_HOME="/usr/bin/cellery"
