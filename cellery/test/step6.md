@@ -17,7 +17,7 @@ We will be pushing the docker image you just built using the following command.
 Now, you have to replace the source field of the Cell file with your own docker image.
 
 You can edit it manually from the editor or execute the following command the following  
-`sed -i “s/sumedhassk/$ORG_NAME/g” hello-world.bal;`{{execute}}
+`sed -i "s/sumedhassk/$ORG_NAME/g" hello-world.bal;`{{execute}}
 
 Rebuild and run the Cell file
 
