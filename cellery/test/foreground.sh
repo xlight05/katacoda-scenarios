@@ -26,7 +26,7 @@ git clone https://github.com/wso2-cellery/distribution.git
 sed -i 's/idp.cellery-system/[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/g' distribution/installer/k8s-artefacts/global-idp/conf/carbon.xml
 sed -i 's/idp.cellery-system/[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/g' distribution/installer/k8s-artefacts/global-idp/global-idp.yaml
 
-wget https://gist.githubusercontent.com/xlight05/53b7fa9e23dee876b62f7734ef33c4ee/raw/1942e77839a3421eb54dec87503b6c179c5153a2/katacoda-min.sh
+wget https://gist.githubusercontent.com/xlight05/53b7fa9e23dee876b62f7734ef33c4ee/raw/65698cf74ed27eec737632cfb2a18b606d922eb7/katacoda-min.sh
 chmod +x katacoda-min.sh
 ./katacoda-min.sh
 rm katacoda-min.sh
