@@ -15,5 +15,5 @@
 # limitations under the License
 #
 # ------------------------------------------------------------------------
-
+echo "Starting"
 sleep 1; wait.sh
