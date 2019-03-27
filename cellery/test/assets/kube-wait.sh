@@ -3,7 +3,7 @@
 set -e
 
 function __is_pod_ready() {
-  [[ "$(kubectl get po "$1" -o 'jsonpath={.status.conditions[?(@.type=="Ready")].status}')" == 'True' ]]
+  [[ "$(kubectl get po "$1" -n cellery-system -o 'jsonpath={.status.conditions[?(@.type=="Ready")].status}')" == 'True' ]]
 }
 
 function __pods_ready() {
