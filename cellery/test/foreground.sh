@@ -25,8 +25,6 @@ sed -i 's/idp.cellery-system/[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environme
 sed -i 's/idp.cellery-system/[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/g' distribution/installer/k8s-artefacts/global-idp/global-idp.yaml
 
 wget https://gist.githubusercontent.com/xlight05/53b7fa9e23dee876b62f7734ef33c4ee/raw/1942e77839a3421eb54dec87503b6c179c5153a2/katacoda-min.sh
-sed -i 's/sleep 60/sleep 1/g' katacoda-min.sh
-sed -i 's/sleep 120/sleep 1/g' katacoda-min.sh
 chmod +x katacoda-min.sh
 ./katacoda-min.sh
 rm katacoda-min.sh
