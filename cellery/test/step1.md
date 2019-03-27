@@ -3,4 +3,4 @@ A Basic Cellery Installation (Kuberentes runtime, Cellery Runtime, and Cellery C
 Once the installation is completed, run the following command to check that it is properly installed.  
 `cellery version`{{execute}}
 
-Great! You now have a running Cellery environment in your online terminal. Let’s proceed to the next steps to tryout your first application on Cellery. 
+Great! You now have a running Cellery environment in your online terminal. Let’s proceed to the next steps to tryout your first application on Cellery.
