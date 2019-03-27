@@ -20,8 +20,6 @@
 start=$(date +%s)
 launch.sh
 git clone https://github.com/wso2-cellery/distribution.git
-export ORG_NAME="wso2-cellery"
-export CELLERY_HOME="/usr/bin/cellery"
 sudo apt-get remove cellery
 wget https://github.com/xlight05/katacoda-scenarios/releases/download/0.0.2/cellery-ubuntu-x64-0.1.1.deb
 sudo dpkg -i cellery-ubuntu-x64-0.1.1.deb
