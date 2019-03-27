@@ -9,10 +9,10 @@ Then execute below command to set the docker username as ORG system variable. By
 
 You have to use the docker build to build your new image.  
 Since we need to push the docker image afterward we will be tagging the image while building.  
-`$docker build --tag $ORG_NAME/hello-world .`{{execute}}
+`docker build --tag $ORG_NAME/hello-world .`{{execute}}
 
 We will be pushing the docker image you just built using the following command.  
-`$docker push $ORG_NAME/hello-world`{{execute}}
+`docker push $ORG_NAME/hello-world`{{execute}}
 
 Now, you have to replace the source field of the Cell file with your own docker image.
 
