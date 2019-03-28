@@ -39,7 +39,6 @@ show_progress()
   printf "    \b\b\b\b"
   echo ""
   echo "Cellery environment is ready"
-  cd /root/tutorial
 }
 
 show_progress
