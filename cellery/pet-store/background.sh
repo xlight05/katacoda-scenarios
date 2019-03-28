@@ -26,7 +26,7 @@ sudo dpkg -i cellery-ubuntu-x64-0.1.1.deb
 sed -i 's/idp.cellery-system/[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/g' distribution/installer/k8s-artefacts/global-idp/conf/carbon.xml
 sed -i 's/idp.cellery-system/[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/g' distribution/installer/k8s-artefacts/global-idp/global-idp.yaml
 
-wget https://gist.githubusercontent.com/xlight05/53b7fa9e23dee876b62f7734ef33c4ee/raw/65698cf74ed27eec737632cfb2a18b606d922eb7/katacoda-min.sh
+wget https://gist.githubusercontent.com/xlight05/47f325fd883f97c9d92cb972930deafc/raw/ee4a7fa7f3c29887decebfb64ad4d4006a76c025/katacoda-minobs.sh
 chmod +x katacoda-min.sh
 ./katacoda-min.sh
 rm katacoda-min.sh

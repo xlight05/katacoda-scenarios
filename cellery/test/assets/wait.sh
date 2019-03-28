@@ -36,11 +36,9 @@ show_progress()
       break
     fi
   done
-  export TEST="testenv"
   printf "    \b\b\b\b"
   echo ""
   echo "Cellery environment is ready"
-  cd /root/tutorial
 }
 
 show_progress
