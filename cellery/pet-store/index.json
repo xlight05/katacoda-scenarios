@@ -1,0 +1,65 @@
+{
+  "title": "Hello World",
+  "description": "Demonstrates how to deploy a simple Hello world web page with cellery",
+  "details": {
+    "steps": [
+      { 
+        "title": "Preparing the environment",
+        "text": "step1.md"
+      },
+      {
+        "title": "Initializing the project",
+        "text": "step2.md"
+      },
+      {
+        "title": "Cell explanation",
+        "text": "step3.md"
+      },
+      {
+        "title": "Deploying the Cell",
+        "text": "step4.md"
+      },
+      {
+        "title": "Modifying your Hello world",
+        "text": "step5.md"
+      },
+      {
+        "title": "Building the Hello World Docker",
+        "text": "step6.md"
+      },
+      {
+        "title": "Cellery Hub",
+        "text": "step7.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "courseData": "background.sh",
+      "code": "foreground.sh",
+      "credits": ""
+    },
+    "assets": {
+      "host01": [
+        {"file": "wait.sh", "target": "/usr/local/bin/", "chmod": "+x"},
+        {"file": "kube-wait.sh", "target": "/usr/local/bin/", "chmod": "+x"}
+      ]
+    }
+  },
+  "files": [],
+  "environment": {
+    "hidefinish": true,
+    "uilayout": "editor-terminal",
+    "uieditorpath": "/root/tutorial",
+    "showdashboard": true,
+    "dashboards": [
+      {
+        "name": "Web Cell",
+        "port": 2000
+      },
+      {"name": "Placeholder", "href": "https://[[HOST_SUBDOMAIN]]-2000-[[KATACODA_HOST]].environments.katacoda.com/items/"}
+    ]
+  },
+  "backend": {
+    "imageid": "wso2"
+  }
+}

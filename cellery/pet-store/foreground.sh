@@ -1,4 +1,3 @@
-#!/bin/bash
 # ------------------------------------------------------------------------
 #
 # Copyright 2019 WSO2, Inc. (http://wso2.com)
@@ -16,31 +15,6 @@
 # limitations under the License
 #
 # ------------------------------------------------------------------------
-
-show_progress()
-{
-  echo -n "Preparing the environment"
-  local -r pid="${1}"
-  local -r delay='0.75'
-  local spinstr='\|/-'
-  local temp
-  while true; do
-    sudo grep -i "done" /root/katacoda-finished &> /dev/null
-    if [[ "$?" -ne 0 ]]; then
-      temp="${spinstr#?}"
-      printf " [%c]  " "${spinstr}"
-      spinstr=${temp}${spinstr%"${temp}"}
-      sleep "${delay}"
-      printf "\b\b\b\b\b\b"
-    else
-      break
-    fi
-  done
-  export TEST="testenv"
-  printf "    \b\b\b\b"
-  echo ""
-  echo "Cellery environment is ready"
-  cd /root/tutorial
-}
-
-show_progress
+export ORG_NAME="wso2-cellery"
+export CELLERY_HOME="/usr/bin/cellery"
+sleep 2; wait.sh
