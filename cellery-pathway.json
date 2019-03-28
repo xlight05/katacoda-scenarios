@@ -12,6 +12,11 @@
         "course_id": "test",
         "title": "Test",
         "description": "A guide that deploys simple hello world with Cellery"
+      },
+      {
+        "course_id": "pet-store",
+        "title": "Test",
+        "description": "A guide that deploys simple hello world with Cellery"
       }
     ]
   }
