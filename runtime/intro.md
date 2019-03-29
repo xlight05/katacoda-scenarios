@@ -1,1 +1,1 @@
-When the scenario starts, additional commands can be executed in the foreground or background.
+Cellery is an architectural description language, tooling and extensions for popular cloud-native runtimes that enables agile development teams to easily create a composable enterprise in a technology neutral way. You will be deploying a Hello World using Cellery in this scenario.
