@@ -21,7 +21,7 @@ export CELLERY_HOME="/usr/bin/cellery"
 start=$(date +%s)
 launch.sh
 git clone https://github.com/wso2-cellery/distribution.git
-sudo apt-get remove -y cellery 
+# sudo apt-get remove -y cellery
 wget https://github.com/xlight05/katacoda-scenarios/releases/download/0.0.2/cellery-ubuntu-x64-0.1.1.deb
 sudo dpkg -i cellery-ubuntu-x64-0.1.1.deb
 sed -i 's/idp.cellery-system/[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/g' distribution/installer/k8s-artefacts/global-idp/conf/carbon.xml
