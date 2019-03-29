@@ -44,7 +44,7 @@ sed -i 's/wso2sp-observability-api/[[HOST_SUBDOMAIN]]-6000-[[KATACODA_HOST]].env
 sed -i 's/wso2sp-observability-api/[[HOST_SUBDOMAIN]]-6000-[[KATACODA_HOST]].environments.katacoda.com/g' distribution/installer/k8s-artefacts/observability/sp/sp-worker.yaml
 
 
-wget https://gist.githubusercontent.com/xlight05/47f325fd883f97c9d92cb972930deafc/raw/43711325ee8a4151ceaca9beb4133bc86a11cb90/katacoda-minobs.sh
+wget https://gist.githubusercontent.com/xlight05/47f325fd883f97c9d92cb972930deafc/raw/c504792d63613ca9638bf2d809135090a1d62132/katacoda-minobs.sh
 chmod +x katacoda-minobs.sh
 ./katacoda-minobs.sh
 rm katacoda-minobs.sh
