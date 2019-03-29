@@ -46,4 +46,4 @@ sed -i 's/idp.cellery-system/[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environme
 kube-wait.sh
 echo "done" >> /root/katacoda-finished
 end=$(date +%s)
-echo "Took $(($end-$start)) seconds"
+echo "Took $(($end-$start)) seconds "
