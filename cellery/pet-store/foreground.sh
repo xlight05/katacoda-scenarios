@@ -20,14 +20,31 @@ export CELLERY_HOME="/usr/bin/cellery"
 #sleep 2; wait.sh
 start=$(date +%s)
 launch.sh
+
 git clone https://github.com/wso2-cellery/distribution.git
+git clone https://github.com/wso2-cellery/mesh-observability
+
 # sudo apt-get remove -y cellery
 wget https://github.com/xlight05/katacoda-scenarios/releases/download/0.0.2/cellery-ubuntu-x64-0.1.1.deb
 sudo dpkg -i cellery-ubuntu-x64-0.1.1.deb
 sed -i 's/idp.cellery-system/[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/g' distribution/installer/k8s-artefacts/global-idp/conf/carbon.xml
 sed -i 's/idp.cellery-system/[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/g' distribution/installer/k8s-artefacts/global-idp/global-idp.yaml
 
-wget https://gist.githubusercontent.com/xlight05/47f325fd883f97c9d92cb972930deafc/raw/ee4a7fa7f3c29887decebfb64ad4d4006a76c025/katacoda-minobs.sh
+#cellery-dashboard
+sed -i 's/cellery-dashboard/[[HOST_SUBDOMAIN]]-4000-[[KATACODA_HOST]].environments.katacoda.com/g' distribution/installer/k8s-artefacts/observability/portal/observability-portal.yaml
+#TODO portal.json
+
+#cellery-k8s-metrics
+sed -i 's/cellery-k8s-metrics/[[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environments.katacoda.com/g' distribution/installer/k8s-artefacts/observability/grafana/config/grafana.ini
+sed -i 's/cellery-k8s-metrics/[[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environments.katacoda.com/g' distribution/installer/k8s-artefacts/observability/grafana/k8s-metrics-grafana.yaml
+sed -i 's/cellery-k8s-metrics/[[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environments.katacoda.com/g' mesh-observability/components/global/portal/io.cellery.observability.ui/node-server/config/portal.json
+
+#wso2sp-observability-api
+sed -i 's/wso2sp-observability-api/[[HOST_SUBDOMAIN]]-6000-[[KATACODA_HOST]].environments.katacoda.com/g' mesh-observability/components/global/portal/io.cellery.observability.ui/node-server/config/portal.json
+sed -i 's/wso2sp-observability-api/[[HOST_SUBDOMAIN]]-6000-[[KATACODA_HOST]].environments.katacoda.com/g' distribution/installer/k8s-artefacts/observability/sp/sp-worker.yaml
+
+
+wget https://gist.githubusercontent.com/xlight05/47f325fd883f97c9d92cb972930deafc/raw/43711325ee8a4151ceaca9beb4133bc86a11cb90/katacoda-minobs.sh
 chmod +x katacoda-minobs.sh
 ./katacoda-minobs.sh
 rm katacoda-minobs.sh

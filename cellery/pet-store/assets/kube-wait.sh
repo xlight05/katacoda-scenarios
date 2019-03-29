@@ -27,7 +27,7 @@ function __wait-until-pods-ready() {
         if __pods_ready $pods; then
             return 0
         fi
-        sleep "$interval"
+        sleep 3
     done
     return 1
 }
