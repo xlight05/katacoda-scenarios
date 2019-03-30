@@ -43,8 +43,10 @@ sed -i 's/cellery-k8s-metrics/[[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environm
 sed -i 's/wso2sp-observability-api/[[HOST_SUBDOMAIN]]-6000-[[KATACODA_HOST]].environments.katacoda.com/g' mesh-observability/components/global/portal/io.cellery.observability.ui/node-server/config/portal.json
 sed -i 's/wso2sp-observability-api/[[HOST_SUBDOMAIN]]-6000-[[KATACODA_HOST]].environments.katacoda.com/g' distribution/installer/k8s-artefacts/observability/sp/sp-worker.yaml
 
+mid=$(date +%s)
+echo "Took $(($mid-$start)) seconds "
 
-wget https://gist.githubusercontent.com/xlight05/47f325fd883f97c9d92cb972930deafc/raw/a03a1f93486d32ce6e5f5830b9eaad7e19c5824e/katacoda-minobs.sh
+wget https://gist.githubusercontent.com/xlight05/47f325fd883f97c9d92cb972930deafc/raw/5b98b6ac15d599a5b67b15e526e0a2a6ac9f5ed0/katacoda-minobs.sh
 chmod +x katacoda-minobs.sh
 ./katacoda-minobs.sh
 rm katacoda-minobs.sh
@@ -59,6 +61,9 @@ wget https://raw.githubusercontent.com/wso2-cellery/mesh-controller/master/sampl
 wget https://raw.githubusercontent.com/wso2-cellery/mesh-controller/af77d802c3bb4be87094db0ba98a7c8ea66de160/samples/pet-store-yamls/pet-frontend.yaml
 sed -i 's/pet-store.com/[[HOST_SUBDOMAIN]]-2000-[[KATACODA_HOST]].environments.katacoda.com/g' pet-frontend.yaml;
 sed -i 's/idp.cellery-system/[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/g' pet-frontend.yaml;
+
+done=$(date +%s)
+echo "Took $(($done-$mid)) to finish script "
 
 kube-wait.sh
 echo "done" >> /root/katacoda-finished
