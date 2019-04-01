@@ -1,6 +1,6 @@
 #### Running the backend Cell  
 Execute the following command to switch into backend folder  
-`cd /root/backend`{{execute}}
+`cd /root/pet-store/backend`{{execute}}
 
 Build the pet-be Cell. It will generate the required artifacts that are required to deploy your Cell  
 `cellery build pet-be.bal my-org/pet-be:0.1.0`{{execute}}
@@ -13,7 +13,7 @@ You can view the status of Pet store backend Cell deployment by running
 
 #### Running the Frontend Cell  samples/samples/
 Execute the following command to switch into frontend folder  
-`cd /root/frontend`{{execute}}
+`cd /root/pet-store/frontend`{{execute}}
 
 Build the pet-fe Cell. It will generate the required artifacts that are required to deploy your Cell  
 `cellery build pet-fe.bal my-org/pet-fe:0.1.0`{{execute}}
