@@ -1,31 +1,10 @@
-In this step, you will be deploying your own hello world as a cell.
+Click on the Observability tab to open the Cellery Observability portal.There you will be able to observe the Cells deployed on Cellery Mesh. It shows the current status of the mesh, also you can select the preferred time range to view the historical view.
 
-Create the index.html file  
-`touch index.html`{{execute}}
+You can navigate the portal to view 
+Runtime dependency models of cells and components 
+Distributed tracing (Request based latency analysis by each component)
+Metrics
+Cell and component based metrics
+Overall Deployment based metrics
+System Metrics (CPU, Memory, Disk Consumption, Network Usage)
 
-You can copy the following HTML hello world sample into the editor and edit the file as you like.  
-
-<pre class="file" data-filename="index.html" data-target="replace">
-<!DOCTYPE html>
-<html lang="en">
-<head>
-   <title>Hello World</title>
-</head>
-<body>
-   <h1>
-       Hello World
-   </h1>
-</body>
-</html>
-</pre>
-
-Now you have to dockerize the HTML file you created.
-
-Create the Dockerfile  
-`touch Dockerfile`{{execute}}
-
-You can copy the following content to the Dockerfile
-<pre class="file" data-filename="Dockerfile" data-target="replace">
-FROM nginx:alpine
-COPY index.html /usr/share/nginx/html/index.html
-</pre>

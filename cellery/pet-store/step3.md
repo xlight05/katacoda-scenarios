@@ -1,17 +1,23 @@
-#### Cell
-A cell is a collection of components, grouped from design and implementation into deployment. A cell is independently deployable, manageable, and observable.
+We have the Cellery project prepared for you with all the cell files and the source files.
 
-#### Component
-A component represents business logic running in a container, serverless environment, or an existing runtime.
+Execute the following command to switch into the project directory.  
+`cd petstore`{{execute}}
 
-In this scenario, Our goal is to deploy a simple hello world web app. Therefore we need only one component in the cell.
+This sample is structured into two Cells.  
+Pet-be Cell
+Pet-fe Cell
 
-Notice the component Object, it specifies all the information about the component including Component name, Docker image source, ingresses etc.
+####Pet-be (Backend Cell)
+This contains the four components which involve working with the Pet Store data and also the business logic. This Cell has an HTTP Ingress to expose the APIs.
 
-#### Build function
-This method will be executed when you use `cellery build` in the next step. We will explain more about this in the next step.
+####Pet-fe (Frontend Cell)
+This contains a single component which serves the Portal. The Portal is exposed through a Web Cell which is able to provide SSO and Web Content delivery features.
 
-#### Run function
-This method will be executed when you use `cellery run` in the next step. We will explain more about this in the next step.
+Take your time and explore the files that are generated for you.
 
-You can find more about the Cellery syntax by visiting https://github.com/wso2-cellery/spec
+Click on the links below to open the Cell files with the editor. The inline comments will explain about each field and operation.
+
+link1
+link2
+
+If you are interested in learning what these containers do, you can find them under the `components` folder in each Cell folder. It contains the Dockerfile as well. You can modify them if needed.

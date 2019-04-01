@@ -1,16 +1,27 @@
-It's time to build and run your cell file. 
+#### Running the backend Cell  
+Execute the following command to switch into backend folder  
+`cd /root/backend`{{execute}}
 
-Build command executes the build function in your Cell file. The main purpose of this command is to generate the required component artifacts for kubernetes.  
-`cellery build hello-world.bal -t wso2-cellery/hello-world-cell:1.0.0`{{execute}}
+Build the pet-be Cell. It will generate the required artifacts that are required to deploy your Cell  
+`cellery build pet-be.bal my-org/pet-be:0.1.0`{{execute}}
 
-The run command executes the run function in your Cell file. The main purpose of this command is to deploy your cell file inside kubernetes.  
-`cellery run wso2-cellery/hello-world-cell:1.0.0`{{execute}}
+Run the pet-be Cell. It will deploy the artifacts that are generated from the build command in kubernetes.  
+`cellery run my-org/pet-be:0.1.0 -n pet-be-inst`{{execute}}
 
-You can specify any kind of logic inside above functions.
+You can view the status of Pet store backend Cell deployment by running  
+`cellery status pet-be-inst`{{execute}}
 
-We will be discussing advanced use cases in future scenarios.
+ #### Running the Frontend Cell  
+Execute the following command to switch into frontend folder  
+`cd /root/frontend`{{execute}}
 
-You can use the below command to see the status of the deployment.  
-`cellery ps`{{execute}}
+Build the pet-fe Cell. It will generate the required artifacts that are required to deploy your Cell  
+`cellery build pet-fe.bal my-org/pet-fe:0.1.0`{{execute}}
 
-Once it's ready you can click Web Cell tab to open the hello world page.
+Run the pet-fe Cell. It will deploy the artifacts that are generated from the build command in kubernetes.  
+`cellery run my-org/pet-fe:0.1.0 -n pet-fe-inst -l pet-be:pet-be-inst`{{execute}}
+
+You can view the status of Pet store frontend Cell deployment by running  
+`cellery status pet-fe-inst`{{execute}}
+
+Once it's ready you can click Web Cell tab to open the Frontend web cell in your browser.
