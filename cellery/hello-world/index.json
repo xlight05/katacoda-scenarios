@@ -20,11 +20,7 @@
         "text": "step4.md"
       },
       {
-        "title": "Modifying your Hello world",
-        "text": "step5.md"
-      },
-      {
-        "title": "Building the Hello World Docker",
+        "title": "Building the modified Hello World Docker",
         "text": "step6.md"
       },
       {
@@ -40,7 +36,9 @@
     },
     "assets": {
       "host01": [
-        {"file": "wait.sh", "target": "/usr/local/bin/", "chmod": "+x"}
+        {"file": "wait.sh", "target": "/usr/local/bin/", "chmod": "+x"},
+        {"file": "index.html", "target": "/root/workspace", "chmod": "+x"},
+        {"file": "Dockerfile", "target": "/root/workspace", "chmod": "+x"}
       ]
     }
   },
@@ -48,7 +46,7 @@
   "environment": {
     "hidefinish": true,
     "uilayout": "editor-terminal",
-    "uieditorpath": "/root/tutorial",
+    "uieditorpath": "/root/workspace",
     "showdashboard": true,
     "dashboards": [
       {

@@ -49,7 +49,7 @@
   "environment": {
     "hidefinish": true,
     "uilayout": "editor-terminal",
-    "uieditorpath": "/root/tutorial",
+    "uieditorpath": "/root/workspace",
     "showdashboard": true,
     "dashboards": [
       {

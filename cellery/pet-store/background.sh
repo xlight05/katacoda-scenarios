@@ -65,6 +65,13 @@ done=$(date +%s)
 echo "Took $(($done-$mid)) to finish script "
 
 kube-wait.sh
+
+rm cellery-setup.log
+rm distribution
+rm mesh-observability
+rm tmp-cellery
+rm cellery-ubuntu-x64-0.1.1.deb
+
 echo "done" >> /root/katacoda-finished
 end=$(date +%s)
 echo "Took $(($end-$start)) seconds "
