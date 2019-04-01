@@ -1,8 +1,5 @@
 We have the Cellery project prepared for you with all the cell files and the source files.
 
-Execute the following command to switch into the project directory.  
-`cd petstore`{{execute}}
-
 This sample is structured into two Cells.  
 1. Pet-be Cell
 2. Pet-fe Cell

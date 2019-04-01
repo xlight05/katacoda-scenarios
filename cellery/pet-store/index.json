@@ -41,7 +41,7 @@
   "environment": {
     "hidefinish": true,
     "uilayout": "editor-terminal",
-    "uieditorpath": "/root/petstore",
+    "uieditorpath": "/root/pet-store",
     "showdashboard": true,
     "dashboards": [
       {
