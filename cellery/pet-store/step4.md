@@ -11,7 +11,7 @@ Run the pet-be Cell. It will deploy the artifacts that are generated from the bu
 You can view the status of Pet store backend Cell deployment by running  
 `cellery status pet-be-inst`{{execute}}
 
-#### Running the Frontend Cell  
+#### Running the Frontend Cell  samples/samples/
 Execute the following command to switch into frontend folder  
 `cd /root/frontend`{{execute}}
 

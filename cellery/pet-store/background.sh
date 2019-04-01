@@ -21,13 +21,8 @@ start=$(date +%s)
 launch.sh
 
 git clone https://github.com/wso2-cellery/samples
-rm -r samples/docs
-rm samples/.gitignore
-rm samples/LICENSE
-rm samples/MAKEFILE
-rm samples/README.md
-rm samples/issue_template.md
-rm samples/pull_request_template.md
+mv -r samples/pet-store /root/pet-store
+rm -r samples
 
 git clone https://github.com/wso2-cellery/distribution.git
 git clone https://github.com/wso2-cellery/mesh-observability
