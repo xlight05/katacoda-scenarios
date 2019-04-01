@@ -8,19 +8,19 @@
         "text": "step1.md"
       },
       {
-        "title": "Initializing the project",
+        "title": "Application Overview",
         "text": "step2.md"
       },
       {
-        "title": "Cell explanation",
+        "title": "Cell Files",
         "text": "step3.md"
       },
       {
-        "title": "Deploying the Cell",
+        "title": "Deploying Cells",
         "text": "step4.md"
       },
       {
-        "title": "Modifying your Hello world",
+        "title": "Observability",
         "text": "step5.md"
       }
     ],

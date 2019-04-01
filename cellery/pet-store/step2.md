@@ -9,4 +9,4 @@ Controller (Controller service which fetches data from the above 3 microservices
 Portal (A simple Node JS container serving a React App with Server Side Rendering)
 
 You can find the Cell architecture diagram below.
-Diagram here
+![Architecture](/xlight/courses/cellery/pet-store/assets/architecture.jpg)
