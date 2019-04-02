@@ -18,10 +18,12 @@
 # ------------------------------------------------------------------------
 
 start=$(date +%s)
-launch.sh
 
 git clone https://github.com/wso2-cellery/samples
 mv samples/pet-store /root
+
+launch.sh
+
 rm -r samples
 
 git clone https://github.com/wso2-cellery/distribution.git
