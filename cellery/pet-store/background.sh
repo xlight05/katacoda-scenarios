@@ -21,7 +21,7 @@ start=$(date +%s)
 launch.sh
 
 git clone https://github.com/wso2-cellery/samples
-mv samples/pet-store /root/pet-store
+mv samples/pet-store /root
 rm -r samples
 
 git clone https://github.com/wso2-cellery/distribution.git
