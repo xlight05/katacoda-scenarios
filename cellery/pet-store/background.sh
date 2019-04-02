@@ -57,7 +57,7 @@ sed -i 's/wso2sp-observability-api/[[HOST_SUBDOMAIN]]-6000-[[KATACODA_HOST]].env
 mid=$(date +%s)
 echo "Took $(($mid-$start)) seconds "
 
-wget https://gist.githubusercontent.com/xlight05/47f325fd883f97c9d92cb972930deafc/raw/5b98b6ac15d599a5b67b15e526e0a2a6ac9f5ed0/katacoda-minobs.sh
+wget https://gist.githubusercontent.com/xlight05/47f325fd883f97c9d92cb972930deafc/raw/786c2265e9db95c9833f03dd2c8e931d85d8b071/katacoda-minobs.sh
 chmod +x katacoda-minobs.sh
 ./katacoda-minobs.sh
 rm katacoda-minobs.sh
