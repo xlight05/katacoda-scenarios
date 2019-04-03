@@ -65,7 +65,7 @@ sudo rm service-nodeport.yaml
 source <(kubectl completion bash)
 
 wget https://raw.githubusercontent.com/wso2-cellery/mesh-controller/master/samples/pet-store-yamls/pet-backend.yaml
-wget https://raw.githubusercontent.com/wso2-cellery/mesh-controller/af77d802c3bb4be87094db0ba98a7c8ea66de160/samples/pet-store-yamls/pet-frontend.yaml
+wget https://gist.githubusercontent.com/xlight05/207cb2ac3062a712250c3a964716fd2e/raw/1281f837b128685e2b12061cc05b96c8fecbdc0a/pet_frontend.yaml
 sed -i 's/pet-store.com/[[HOST_SUBDOMAIN]]-2000-[[KATACODA_HOST]].environments.katacoda.com/g' pet-frontend.yaml;
 sed -i 's/idp.cellery-system/[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/g' pet-frontend.yaml;
 
