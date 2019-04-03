@@ -4,10 +4,11 @@ We have prepared a hello world sample and the required Dockerfile to containeriz
 
 Open the hello world html by clicking the following link and edit it as you like.  
 `index.html`{{open}}  
-`Dockerfile`{{open}}  
+`Dockerfile`{{open}}
 
 We will be needing a docker hub account to push the docker image.  
-If you don’t have one, you can sign up using https://hub.docker.com/signup
+If you don’t have one, you can sign up using https://hub.docker.com/signup  
+`docker login`{{execute}}
 
 Execute below command to set the docker username as ORG system variable. By default the ORG_NAME system variable is set to ‘wso2-cellery’.
 
@@ -21,9 +22,6 @@ We will be pushing the docker image you just built using the following command.
 `docker push $ORG_NAME/hello-world`{{execute}}
 
 Now, you have to replace the source field of the Cell file with your own docker image.
-
-You can edit it manually from the editor or execute the following command the following  
-`sed -i “s/sumedhassk/$ORG_NAME/g” hello-world.bal;`{{execute}}
 
 Rebuild and run the Cell file
 

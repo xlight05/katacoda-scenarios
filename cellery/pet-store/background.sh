@@ -54,9 +54,6 @@ sed -i 's/cellery-k8s-metrics/[[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environm
 sed -i 's/wso2sp-observability-api/[[HOST_SUBDOMAIN]]-6000-[[KATACODA_HOST]].environments.katacoda.com/g' mesh-observability/components/global/portal/io.cellery.observability.ui/node-server/config/portal.json
 sed -i 's/wso2sp-observability-api/[[HOST_SUBDOMAIN]]-6000-[[KATACODA_HOST]].environments.katacoda.com/g' distribution/installer/k8s-artefacts/observability/sp/sp-worker.yaml
 
-mid=$(date +%s)
-echo "Took $(($mid-$start)) seconds "
-
 wget https://gist.githubusercontent.com/xlight05/47f325fd883f97c9d92cb972930deafc/raw/786c2265e9db95c9833f03dd2c8e931d85d8b071/katacoda-minobs.sh
 chmod +x katacoda-minobs.sh
 ./katacoda-minobs.sh
@@ -73,16 +70,13 @@ wget https://raw.githubusercontent.com/wso2-cellery/mesh-controller/af77d802c3bb
 sed -i 's/pet-store.com/[[HOST_SUBDOMAIN]]-2000-[[KATACODA_HOST]].environments.katacoda.com/g' pet-frontend.yaml;
 sed -i 's/idp.cellery-system/[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/g' pet-frontend.yaml;
 
-done=$(date +%s)
-echo "Took $(($done-$mid)) to finish script "
-
 kube-wait.sh
 
 rm cellery-setup.log
-rm distribution
-rm mesh-observability
-rm tmp-cellery
-rm cellery-ubuntu-x64-0.1.1.deb
+rm -r distribution
+rm -r mesh-observability
+rm -r tmp-cellery
+rm cellery-ubuntu-x64-081c29a512311de4422ff33f34af692805099043.deb
 
 echo "done" >> /root/katacoda-finished
 end=$(date +%s)
