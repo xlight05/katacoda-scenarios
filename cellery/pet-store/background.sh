@@ -30,8 +30,8 @@ git clone https://github.com/wso2-cellery/distribution.git
 git clone https://github.com/wso2-cellery/mesh-observability
 
 sudo apt-get remove -y cellery
-wget https://github.com/xlight05/katacoda-scenarios/releases/download/0.0.2/cellery-ubuntu-x64-081c29a512311de4422ff33f34af692805099043.deb
-sudo dpkg -i cellery-ubuntu-x64-081c29a512311de4422ff33f34af692805099043.deb
+wget https://wso2.org/jenkins/job/cellery/job/sdk/lastSuccessfulBuild/artifact/installers/ubuntu-x64/target/cellery-ubuntu-x64-8fe99de343b3ddbd7888faeac7a275c1f740724c.deb
+sudo dpkg -i cellery-ubuntu-x64-8fe99de343b3ddbd7888faeac7a275c1f740724c.deb
 
 sudo cp /usr/share/cellery/runtime/ballerina-0.990.3/bre/lib/cellery-0.2.0-SNAPSHOT.jar /usr/lib/ballerina/ballerina-0.990.3/bre/lib
 sudo cp -r /usr/share/cellery/repo/celleryio /usr/lib/ballerina/ballerina-0.990.3/lib/repo
@@ -76,7 +76,7 @@ rm cellery-setup.log
 rm -r distribution
 rm -r mesh-observability
 rm -r tmp-cellery
-rm cellery-ubuntu-x64-081c29a512311de4422ff33f34af692805099043.deb
+rm cellery-ubuntu-x64-8fe99de343b3ddbd7888faeac7a275c1f740724c.deb
 
 echo "done" >> /root/katacoda-finished
 end=$(date +%s)
