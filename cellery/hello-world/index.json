@@ -3,7 +3,7 @@
   "description": "Demonstrates how to deploy a simple Hello world web page with cellery",
   "details": {
     "steps": [
-      { 
+      {
         "title": "Preparing the environment",
         "text": "step1.md"
       },
@@ -36,9 +36,21 @@
     },
     "assets": {
       "host01": [
-        {"file": "wait.sh", "target": "/usr/local/bin/", "chmod": "+x"},
-        {"file": "index.html", "target": "/root/workspace", "chmod": "+x"},
-        {"file": "Dockerfile", "target": "/root/workspace", "chmod": "+x"}
+        {
+          "file": "wait.sh",
+          "target": "/usr/local/bin/",
+          "chmod": "+x"
+        },
+        {
+          "file": "index.html",
+          "target": "/root/workspace",
+          "chmod": "+x"
+        },
+        {
+          "file": "Dockerfile",
+          "target": "/root/workspace",
+          "chmod": "+x"
+        }
       ]
     }
   },
