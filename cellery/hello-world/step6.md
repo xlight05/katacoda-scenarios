@@ -25,7 +25,7 @@ Now, you have to replace the source field of the Cell file with your own docker 
 
 Rebuild and run the Cell file
 
-`cellery build hello-world.bal -t $ORG_NAME/hello-world:1.0.0`{{execute}}
+`cellery build hello-world.bal $ORG_NAME/hello-world:1.0.0`{{execute}}
 `cellery run $ORG_NAME/hello-world:1.0.0`{{execute}}
 
 Once it's ready you can click Web Cell tab to open the hello world page.
