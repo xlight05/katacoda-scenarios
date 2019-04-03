@@ -1,6 +1,7 @@
 We will be modifying the HTML page and dockerizing the page in this step.
   
-We have prepared a hello world sample and the required Dockerfile to containerize the Hello world.
+We have prepared a hello world sample and the required Dockerfile to containerize the Hello world.  
+`cd /root/workspace`{{execute}}
 
 Open the hello world html by clicking the following link and edit it as you like.  
 `index.html`{{open}}  
@@ -23,7 +24,8 @@ We will be pushing the docker image you just built using the following command.
 
 Now, you have to replace the source field of the Cell file with your own docker image.
 
-Rebuild and run the Cell file
+Rebuild and run the Cell file  
+`sed -i 's/hello-world.com/[[HOST_SUBDOMAIN]]-2000-[[KATACODA_HOST]].environments.katacoda.com/g' hello-world.bal`{{execute}}
 
 `cellery build hello-world.bal $ORG_NAME/hello-world:1.0.0`{{execute}}
 `cellery run $ORG_NAME/hello-world:1.0.0`{{execute}}

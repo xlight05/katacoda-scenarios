@@ -43,12 +43,17 @@
         },
         {
           "file": "index.html",
-          "target": "/root/workspace",
+          "target": "/root/workspace/custom",
           "chmod": "+x"
         },
         {
           "file": "Dockerfile",
-          "target": "/root/workspace",
+          "target": "/root/workspace/custom",
+          "chmod": "+x"
+        },
+        {
+          "file": "hello-world.bal",
+          "target": "/root/workspace/custom",
           "chmod": "+x"
         }
       ]
