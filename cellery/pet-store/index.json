@@ -3,7 +3,7 @@
   "description": "Demonstrates how to deploy a simple Hello world web page with cellery",
   "details": {
     "steps": [
-      { 
+      {
         "title": "Preparing the environment",
         "text": "step1.md"
       },
@@ -32,8 +32,16 @@
     },
     "assets": {
       "host01": [
-        {"file": "wait.sh", "target": "/usr/local/bin/", "chmod": "+x"},
-        {"file": "kube-wait.sh", "target": "/usr/local/bin/", "chmod": "+x"}
+        {
+          "file": "wait.sh",
+          "target": "/usr/local/bin/",
+          "chmod": "+x"
+        },
+        {
+          "file": "kube-wait.sh",
+          "target": "/usr/local/bin/",
+          "chmod": "+x"
+        }
       ]
     }
   },
@@ -46,13 +54,12 @@
     "dashboards": [
       {
         "name": "Web Cell",
-        "port": 2000
+        "href": "https://[[HOST_SUBDOMAIN]]-2000-[[KATACODA_HOST]].environments.katacoda.com/items/"
       },
       {
         "name": "Observability",
         "port": 4000
-      },
-      {"name": "Placeholder", "href": "https://[[HOST_SUBDOMAIN]]-2000-[[KATACODA_HOST]].environments.katacoda.com/items/"}
+      }
     ]
   },
   "backend": {

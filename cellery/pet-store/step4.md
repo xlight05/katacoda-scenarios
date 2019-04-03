@@ -15,6 +15,9 @@ You can view the status of Pet store backend Cell deployment by running
 Execute the following command to switch into frontend folder  
 `cd /root/pet-store/frontend`{{execute}}
 
+Since katacoda is hosted online, You have to execute following command to access the cell via web UI  
+`sed -i 's/pet-store.com/[[HOST_SUBDOMAIN]]-2000-[[KATACODA_HOST]].environments.katacoda.com/g' pet-fe.bal`{{execute}}
+
 Build the pet-fe Cell. It will generate the required artifacts that are required to deploy your Cell  
 `cellery build pet-fe.bal my-org/pet-fe:0.1.0`{{execute}}
 
