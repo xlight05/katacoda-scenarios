@@ -1,7 +1,7 @@
 We will be modifying the HTML page and dockerizing the page in this step.
   
 We have prepared a hello world sample and the required Dockerfile to containerize the Hello world.  
-`cd /root/workspace`{{execute}}
+`cd /root/workspace/custom`{{execute}}
 
 Open the hello world html by clicking the following link and edit it as you like.  
 `index.html`{{open}}  
