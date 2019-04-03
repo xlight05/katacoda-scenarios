@@ -15,6 +15,6 @@ You can specify any kind of logic inside above functions.
 We will be discussing advanced use cases in future scenarios.
 
 You can use the below command to see the status of the deployment.  
-`cellery ps`{{execute}}
+`cellery instances`{{execute}}
 
 Once it's ready you can click Web Cell tab to open the hello world page.

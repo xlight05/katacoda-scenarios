@@ -4,8 +4,8 @@ We have prepared a hello world sample and the required Dockerfile to containeriz
 `cd /root/workspace/custom`{{execute}}
 
 Open the hello world html by clicking the following link and edit it as you like.  
-`index.html`{{open}}  
-`Dockerfile`{{open}}
+`custom/index.html`{{open}}  
+`custom/Dockerfile`{{open}}
 
 We will be needing a docker hub account to push the docker image.  
 If you don’t have one, you can sign up using https://hub.docker.com/signup  
