@@ -24,8 +24,9 @@ launch.sh
 git clone https://github.com/wso2-cellery/distribution.git
 
 sudo apt-get remove -y cellery
-wget https://github.com/xlight05/katacoda-scenarios/releases/download/0.0.2/cellery-ubuntu-x64-acc7aa3c8c5ff0ae86120bedf2c17812205510f5.deb
-sudo dpkg -i cellery-ubuntu-x64-acc7aa3c8c5ff0ae86120bedf2c17812205510f5.deb
+# wget https://github.com/xlight05/katacoda-scenarios/releases/download/0.0.2/cellery-ubuntu-x64-acc7aa3c8c5ff0ae86120bedf2c17812205510f5.deb
+wget https://wso2.org/jenkins/job/cellery/job/sdk/65/artifact/installers/ubuntu-x64/target/cellery-ubuntu-x64-7a06535a6b93d83b5af86b56643e9cdffe7f7113.deb
+sudo dpkg -i cellery-ubuntu-x64-7a06535a6b93d83b5af86b56643e9cdffe7f7113.deb
 
 sudo cp /usr/share/cellery/runtime/ballerina-0.990.3/bre/lib/cellery-0.2.0-SNAPSHOT.jar /usr/lib/ballerina/ballerina-0.990.3/bre/lib
 sudo cp -r /usr/share/cellery/repo/celleryio /usr/lib/ballerina/ballerina-0.990.3/lib/repo
@@ -52,7 +53,7 @@ kube-wait.sh
 rm cellery-setup.log
 rm -r distribution
 rm -r tmp-cellery
-rm cellery-ubuntu-x64-acc7aa3c8c5ff0ae86120bedf2c17812205510f5.deb
+rm cellery-ubuntu-x64-7a06535a6b93d83b5af86b56643e9cdffe7f7113.deb
 
 echo "done" >> /root/katacoda-finished
 end=$(date +%s)
