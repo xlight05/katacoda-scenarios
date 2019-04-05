@@ -17,5 +17,5 @@
 # ------------------------------------------------------------------------
 
 export ORG_NAME="wso2-cellery"
-export VHOST_NAME="[[HOST_SUBDOMAIN]]-2000-[[KATACODA_HOST]].environments.katacoda.com"
+export CELLERY_HOME="/usr/bin/cellery"
 sleep 2; wait.sh

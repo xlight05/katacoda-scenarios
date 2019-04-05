@@ -27,11 +27,6 @@ sudo apt-get remove -y cellery
 wget https://wso2.org/jenkins/job/cellery/job/sdk/85/artifact/installers/ubuntu-x64/target/cellery-ubuntu-x64-35e2c89e072d2c4db9a03d7887bfbc2b4ca874e5.deb
 sudo dpkg -i cellery-ubuntu-x64-35e2c89e072d2c4db9a03d7887bfbc2b4ca874e5.deb
 
-sudo cp /usr/share/cellery/runtime/ballerina-0.990.3/bre/lib/cellery-0.2.0-SNAPSHOT.jar /usr/lib/ballerina/ballerina-0.990.3/bre/lib
-sudo cp -r /usr/share/cellery/repo/celleryio /usr/lib/ballerina/ballerina-0.990.3/lib/repo
-mkdir -p ~/.ballerina/repo/
-sudo cp -r /usr/share/cellery/repo/celleryio /usr/lib/ballerina/ballerina-0.990.3/lib/repo ~/.ballerina/repo/
-
 sed -i 's/idp.cellery-system/[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/g' distribution/installer/k8s-artefacts/global-idp/conf/carbon.xml
 sed -i 's/idp.cellery-system/[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/g' distribution/installer/k8s-artefacts/global-idp/global-idp.yaml
 
