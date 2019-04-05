@@ -24,7 +24,6 @@ launch.sh
 git clone https://github.com/wso2-cellery/distribution.git
 
 sudo apt-get remove -y cellery
-# wget https://github.com/xlight05/katacoda-scenarios/releases/download/0.0.2/cellery-ubuntu-x64-acc7aa3c8c5ff0ae86120bedf2c17812205510f5.deb
 wget https://wso2.org/jenkins/job/cellery/job/sdk/85/artifact/installers/ubuntu-x64/target/cellery-ubuntu-x64-35e2c89e072d2c4db9a03d7887bfbc2b4ca874e5.deb
 sudo dpkg -i cellery-ubuntu-x64-35e2c89e072d2c4db9a03d7887bfbc2b4ca874e5.deb
 
@@ -57,4 +56,4 @@ rm cellery-ubuntu-x64-35e2c89e072d2c4db9a03d7887bfbc2b4ca874e5.deb
 
 echo "done" >> /root/katacoda-finished
 end=$(date +%s)
-echo "Took $(($end-$start)) seconds "https://gist.githubusercontent.com/xlight05/3fa261aaef8d32dac4bc4b9d90f0dfd4/raw/89daca1a56721b29efaddece2b954b7c7b5de8be/service-nodeport.yaml
+echo "Took $(($end-$start)) seconds "
