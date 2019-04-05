@@ -25,8 +25,8 @@ git clone https://github.com/wso2-cellery/distribution.git
 
 sudo apt-get remove -y cellery
 sudo apt-get remove -y ballerina*
-wget https://wso2.org/jenkins/job/cellery/job/sdk/85/artifact/installers/ubuntu-x64/target/cellery-ubuntu-x64-35e2c89e072d2c4db9a03d7887bfbc2b4ca874e5.deb
-sudo dpkg -i cellery-ubuntu-x64-35e2c89e072d2c4db9a03d7887bfbc2b4ca874e5.deb
+wget https://wso2.org/jenkins/job/cellery/job/sdk/88/artifact/installers/ubuntu-x64/target/cellery-ubuntu-x64-67e12ed444ca1592052fc8388ee524dfb87ecb83.deb
+sudo dpkg -i cellery-ubuntu-x64-67e12ed444ca1592052fc8388ee524dfb87ecb83.deb
 
 sed -i 's/idp.cellery-system/[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/g' distribution/installer/k8s-artefacts/global-idp/conf/carbon.xml
 sed -i 's/idp.cellery-system/[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/g' distribution/installer/k8s-artefacts/global-idp/global-idp.yaml
@@ -48,7 +48,7 @@ kube-wait.sh
 rm cellery-setup.log
 rm -r distribution
 rm -r tmp-cellery
-rm cellery-ubuntu-x64-35e2c89e072d2c4db9a03d7887bfbc2b4ca874e5.deb
+rm cellery-ubuntu-x64-67e12ed444ca1592052fc8388ee524dfb87ecb83.deb
 
 echo "done" >> /root/katacoda-finished
 end=$(date +%s)
