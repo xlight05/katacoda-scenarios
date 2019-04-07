@@ -24,7 +24,6 @@ launch.sh
 git clone https://github.com/wso2-cellery/distribution.git
 
 sudo apt-get remove -y cellery
-sudo apt-get remove -y ballerina*
 wget https://wso2.org/jenkins/job/cellery/job/sdk/103/artifact/installers/ubuntu-x64/target/cellery-ubuntu-x64-730f882deb03fa8e0a58151d8134c8988987e4f2.deb
 sudo dpkg -i cellery-ubuntu-x64-730f882deb03fa8e0a58151d8134c8988987e4f2.deb
 
