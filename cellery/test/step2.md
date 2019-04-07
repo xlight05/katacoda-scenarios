@@ -1,14 +1,11 @@
-In this step, you will be creating your first Cellery project.
+In order to demonstrate the outcome of the scenario, we will be using a pre built cell image which is hosted on docker hub.
 
-You can initialize your Cellery project with the following command, and this will auto generate the hello world cell project.  
-`cellery init`{{execute}}
+You can use the following command to run the prebuilt hello world web cell.  
+`cellery run wso2cellery/hello-world-webapp:1.0.0`{{execute}}
 
-Enter your project name in the terminal  
-`hello-world`{{execute}}
+As you can see in the terminal , above command checks your existing local cell images and if the requested image is not available in your local repository, it will perform a pull from the docker registry to check if its available in docker hub.
 
-It will create a folder for your project. Switch into the newly created project  
-`cd hello-world`{{execute}}
+You can use the Web Cell button above the terminal to access the Web Cell.
 
-This hello world cell simply deploys a static Hello world web page written by HTML.
-
-You can examine cell that was created from the editor, the inline comments will explain about each field and operationHowever, In the next step we will be learning about each field in detail.
+We will be creating the Cell image for that simple hello world in next steps.  
+`cellery terminate wso2cellery/hello-world-webapp:1.0.0`{{execute}}
