@@ -1,6 +1,8 @@
-Cellery Hub is a platform where you can store your cell images. So you or your team members can reuse the image.
+Cellery images can be pushed and pulled from any container registry like Docker Hub. This enables cells to be re-used.
 
-Cellery push command allows you to push your Cell image to Cellery hub.  
-`cellery push $ORG_NAME/hello-world:1.0.0`{{execute}}
+The Cellery push command allows you to push your cell image to the Docker Hub. You must have a Docker Hub login for this to work. 
+`cellery push DOCKER_USERNAME/hello-world:1.0.0`{{execute}}
 
 Congratulations, You have successfully deployed your first hello world Cell.  :)
+
+(Later: After getting all above working, try to get cellery view working.)
