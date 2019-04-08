@@ -56,7 +56,7 @@ rm cellery-ubuntu-x64-730f882deb03fa8e0a58151d8134c8988987e4f2.deb
 
 curl -sL https://deb.nodesource.com/setup_8.x -o nodesource_setup.sh
 sudo bash nodesource_setup.sh
-sudo apt-get install nodejs
+sudo apt-get -y install nodejs
 
 cd /root/view
 npm install
