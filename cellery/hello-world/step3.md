@@ -9,10 +9,10 @@ The following command will initialise your first Cellery project. This will auto
 Enter your project name in the terminal  
 `hello-world`{{execute}}
 
-This has creates a folder for your project. Move into the newly created project folder:
+This has creates a folder for your project. Move into the newly created project folder  
 `cd hello-world`{{execute}}
 
-Cellery init has created a cell code file, which defines the cell in a programmable way. Cellery uses the Ballerina language (https://ballerina.io) to define cells. 
+Cellery init has created a cell code file, which defines the cell in a programmable way. Cellery uses the Ballerina language (https://ballerina.io) to define cells.
 
 The “hello-world” cell deploys a container which serves a simple web page.
 
