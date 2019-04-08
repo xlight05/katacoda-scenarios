@@ -16,6 +16,6 @@
 #
 # ------------------------------------------------------------------------
 
-export ORG_NAME="wso2-cellery"
+export JAVA_HOME="/usr/java/jre1.8.0_201/"
 export VHOST_NAME="[[HOST_SUBDOMAIN]]-2000-[[KATACODA_HOST]].environments.katacoda.com"
 sleep 2; wait.sh
