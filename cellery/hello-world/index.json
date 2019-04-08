@@ -55,6 +55,11 @@
           "file": "hello-world.bal",
           "target": "/root/workspace/custom",
           "chmod": "+x"
+        },
+        {
+          "file": "jre-8u201-linux-x64.tar.gz",
+          "target": "/root",
+          "chmod": "+x"
         }
       ]
     }

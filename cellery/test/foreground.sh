@@ -16,5 +16,5 @@
 #
 # ------------------------------------------------------------------------
 export ORG_NAME="wso2-cellery"
-export CELLERY_HOME="/usr/bin/cellery"
+export JAVA_HOME="/usr/java/jre1.8.0_201/"
 sleep 2; wait.sh
