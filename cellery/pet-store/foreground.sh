@@ -15,7 +15,6 @@
 # limitations under the License
 #
 # ------------------------------------------------------------------------
-export ORG_NAME="wso2-cellery"
-export CELLERY_HOME="/usr/bin/cellery"
+export JAVA_HOME="/usr/java/jdk8u202-b08/"
+export VHOST_NAME="[[HOST_SUBDOMAIN]]-2000-[[KATACODA_HOST]].environments.katacoda.com"
 sleep 2; wait.sh
-
