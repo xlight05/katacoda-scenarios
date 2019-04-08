@@ -16,6 +16,6 @@
 #
 # ------------------------------------------------------------------------
 
-export JAVA_HOME="/usr/java/jre1.8.0_201/"
+export JAVA_HOME="/usr/java/jdk8u202-b08/"
 export VHOST_NAME="[[HOST_SUBDOMAIN]]-2000-[[KATACODA_HOST]].environments.katacoda.com"
 sleep 2; wait.sh
