@@ -40,21 +40,6 @@
           "file": "wait.sh",
           "target": "/usr/local/bin/",
           "chmod": "+x"
-        },
-        {
-          "file": "index.html",
-          "target": "/root/workspace/custom",
-          "chmod": "+x"
-        },
-        {
-          "file": "Dockerfile",
-          "target": "/root/workspace/custom",
-          "chmod": "+x"
-        },
-        {
-          "file": "hello-world.bal",
-          "target": "/root/workspace/custom",
-          "chmod": "+x"
         }
       ]
     }
