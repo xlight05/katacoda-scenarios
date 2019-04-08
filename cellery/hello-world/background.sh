@@ -26,6 +26,7 @@ git clone https://github.com/wso2-cellery/distribution.git
 wget https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u202-b08/OpenJDK8U-jdk_x64_linux_hotspot_8u202b08.tar.gz
 mkdir /usr/java
 sudo tar xvzf OpenJDK8U-jdk_x64_linux_hotspot_8u202b08.tar.gz -C /usr/java
+rm OpenJDK8U-jdk_x64_linux_hotspot_8u202b08.tar.gz
 
 sudo apt-get remove -y cellery
 wget https://wso2.org/jenkins/job/cellery/job/sdk/103/artifact/installers/ubuntu-x64/target/cellery-ubuntu-x64-730f882deb03fa8e0a58151d8134c8988987e4f2.deb
