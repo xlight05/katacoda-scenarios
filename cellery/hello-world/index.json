@@ -24,7 +24,7 @@
         "text": "step6.md"
       },
       {
-        "title": "Push your image to Docker Hub",
+        "title": "Push your image to Docker Hub (Optional)",
         "text": "step7.md"
       }
     ],
@@ -38,6 +38,11 @@
       "host01": [
         {
           "file": "wait.sh",
+          "target": "/usr/local/bin/",
+          "chmod": "+x"
+        },
+        {
+          "file": "kube-wait.sh",
           "target": "/usr/local/bin/",
           "chmod": "+x"
         }

@@ -1,6 +1,6 @@
 In this step, you will be creating your first Cellery project.
 
-First, switch directory into the workspace directory
+First, switch directory into the workspace directory  
 `cd workspace`{{execute}}
 
 The following command will initialise your first Cellery project. This will auto-generate the “hello-world-web” project.  
