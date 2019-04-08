@@ -58,10 +58,12 @@ curl -sL https://deb.nodesource.com/setup_8.x -o nodesource_setup.sh
 sudo bash nodesource_setup.sh
 sudo apt-get -y install nodejs
 
+echo "done" >> /root/katacoda-finished
+
 cd /root/view
 npm install
 node app.js
 
-echo "done" >> /root/katacoda-finished
+
 end=$(date +%s)
 echo "Took $(($end-$start)) seconds "
