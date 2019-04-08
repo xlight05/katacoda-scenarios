@@ -17,4 +17,5 @@
 # ------------------------------------------------------------------------
 export JAVA_HOME="/usr/java/jdk8u202-b08/"
 export VHOST_NAME="[[HOST_SUBDOMAIN]]-2000-[[KATACODA_HOST]].environments.katacoda.com"
+export providerUrl="https://[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/oauth2/token"
 sleep 2; wait.sh
