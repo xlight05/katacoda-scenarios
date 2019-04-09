@@ -5,7 +5,7 @@ You can use the following command to run the prebuilt hello world web cell.
 
 As you can see in the terminal , above command checks your existing local cell images and if the requested image is not available in your local repository, it will perform a pull from the docker registry to check if its available in docker hub.
 
-You can use the Web Cell button above the terminal to access the Web Cell.
+You can use the **Web Cell button** above the terminal to access the Web Cell.
 
 We will be creating the Cell image for that simple hello world in next steps.  
 `cellery terminate hello`{{execute}}
