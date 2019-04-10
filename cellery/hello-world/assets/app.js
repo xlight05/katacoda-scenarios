@@ -99,14 +99,19 @@ function copyMetadataFromRepo(directory) {
                 version:directoryList[directoryList.length - 1],
                 org:directoryList[directoryList.length - 3]
             };
-            let cellDocsFolderName = path.join(docsStorageDir, `${cell.org}-${cell.name}-${cell.version}`);
-            if (!fs.existsSync(cellDocsFolderName)) {
-                fs.mkdirSync(cellDocsFolderName);
-                fse.copySync(docsViewBaseFilesDir, cellDocsFolderName);
+
+            if (!fs.existsSync(docsStorageDir)) {
+                fs.mkdirSync(docsStorageDir);
+            }
+
+            let cellDocsFolderPath = path.join(docsStorageDir, `${cell.org}-${cell.name}-${cell.version}`);
+            if (!fs.existsSync(cellDocsFolderPath)) {
+                fs.mkdirSync(cellDocsFolderPath);
+                fse.copySync(docsViewBaseFilesDir, cellDocsFolderPath);
                 let zip = new admZip(filepath);
-                zip.extractEntryTo("artifacts/cellery/metadata.json", path.join(cellDocsFolderName, "data"), false, true);
-                let cellDataFile = path.join(cellDocsFolderName, "data" , "cell.js");
-                fs.renameSync(path.join(cellDocsFolderName, "data","metadata.json"), cellDataFile);
+                zip.extractEntryTo("artifacts/cellery/metadata.json", path.join(cellDocsFolderPath, "data"), false, true);
+                let cellDataFile = path.join(cellDocsFolderPath, "data" , "cell.js");
+                fs.renameSync(path.join(cellDocsFolderPath, "data","metadata.json"), cellDataFile);
                 let data = fs.readFileSync(cellDataFile);
                 let fd = fs.openSync(cellDataFile, 'w+');
                 let buffer = new Buffer('window.__CELL_METADATA__ = ');
