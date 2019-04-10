@@ -16,9 +16,6 @@
 # limitations under the License
 #
 # ------------------------------------------------------------------------
-
-start=$(date +%s)
-
 launch.sh
 
 git clone https://github.com/wso2-cellery/distribution.git
@@ -137,7 +134,3 @@ echo "done" >> /root/katacoda-finished
 cd /root/docs-view
 npm install
 node app.js
-
-
-end=$(date +%s)
-echo "Took $(($end-$start)) seconds "
