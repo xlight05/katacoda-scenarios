@@ -108,14 +108,17 @@ kubectl create configmap identity-server-tomcat --from-file=${download_path}/dis
 #Create IDP deployment and the service
 kubectl apply -f ${download_path}/distribution-${release_version}/installer/k8s-artefacts/global-idp/global-idp.yaml -n cellery-system
 
+sed -i 's/172.17.17.100/[[HOST_IP]]/g' ${download_path}/distribution-${release_version}/installer/k8s-artefacts/system/service-nodeport.yaml
+
 #Create ingress-nginx deployment
 kubectl apply -f ${download_path}/distribution-${release_version}/installer/k8s-artefacts/system/mandatory.yaml
 kubectl apply -f ${download_path}/distribution-${release_version}/installer/k8s-artefacts/system/service-nodeport.yaml
 
-wget https://gist.githubusercontent.com/xlight05/3fa261aaef8d32dac4bc4b9d90f0dfd4/raw/89daca1a56721b29efaddece2b954b7c7b5de8be/service-nodeport.yaml
-sed -i 's/172.17.17.100/[[HOST_IP]]/g' service-nodeport.yaml
-kubectl apply -f service-nodeport.yaml
-sudo rm service-nodeport.yaml
+# wget https://gist.githubusercontent.com/xlight05/3fa261aaef8d32dac4bc4b9d90f0dfd4/raw/89daca1a56721b29efaddece2b954b7c7b5de8be/service-nodeport.yaml
+# sed -i 's/172.17.17.100/[[HOST_IP]]/g' service-nodeport.yaml
+# kubectl apply -f service-nodeport.yaml
+# sudo rm service-nodeport.yaml
+
 source <(kubectl completion bash)
 
 kube-wait.sh
