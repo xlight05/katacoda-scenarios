@@ -29,19 +29,19 @@ const port = 9990;
 let app = express();
 
 app.use(express.json());
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({ extended: false }));
 
 const renderDocsViewPage = (cell) => "<!DOCTYPE html>" +
     "<html lang='en'>" +
     "<head>" +
     "<meta charset='utf-8'>" +
-    `<link rel="shortcut icon" href="/files/favicon.ico" type="image/x-icon"/>`+
+    `<link rel="shortcut icon" href="/files/favicon.ico" type="image/x-icon"/>` +
     "<title>Cellery Docs View</title>" +
     "</head>" +
     "<body>" +
     `<h1>Cellery Docs View</h1>` +
     '<ol type = "1">' +
-     generateCellListingHtml(cell) +
+    generateCellListingHtml(cell) +
     '</ol>' +
     "</body>" +
     "</html";
@@ -50,7 +50,7 @@ const renderErrorPage = () => "<!DOCTYPE html>" +
     "<html lang='en'>" +
     "<head>" +
     "<meta charset='utf-8'>" +
-    `<link rel="shortcut icon" href="/files/favicon.ico" type="image/x-icon"/>`+
+    `<link rel="shortcut icon" href="/files/favicon.ico" type="image/x-icon"/>` +
     "<title>Cellery Docs View</title>" +
     "</head>" +
     "<body>" +
@@ -74,12 +74,12 @@ app.use("/docs", function (req, res) {
             fs.mkdirSync(docsStorageDir);
         }
         let cellDocsViewInfoList = createCellDocsDir(cellDetailsList);
-        if (cellDocsViewInfoList.length === 1){
-            res.redirect("/files/images/"+cellDocsViewInfoList[0].filename);
-        }else {
+        if (cellDocsViewInfoList.length === 1) {
+            res.redirect("/files/images/" + cellDocsViewInfoList[0].filename);
+        } else {
             res.send(renderDocsViewPage(cellDocsViewInfoList));
         }
-    }catch (e) {
+    } catch (e) {
         console.log(e);
         res.send(renderErrorPage());
     }
@@ -88,7 +88,7 @@ app.use("/docs", function (req, res) {
 app.use('/files', express.static(assetsDir));
 
 function createCellDocsDir(cellDetailsList) {
-    for (let i =0;i<cellDetailsList.length;i++){
+    for (let i = 0; i < cellDetailsList.length; i++) {
         let cell = cellDetailsList[i];
         let cellDocsFolderPath = path.join(docsStorageDir, `${cell.org}-${cell.name}-${cell.version}`);
         cell.filename = `${cell.org}-${cell.name}-${cell.version}`;
@@ -99,8 +99,8 @@ function createCellDocsDir(cellDetailsList) {
         fse.copySync(docsViewBaseFilesDir, cellDocsFolderPath);
         let zip = new admZip(cell.filepath);
         zip.extractEntryTo("artifacts/cellery/metadata.json", path.join(cellDocsFolderPath, "data"), false, true);
-        let cellDataFile = path.join(cellDocsFolderPath, "data" , "cell.js");
-        fs.renameSync(path.join(cellDocsFolderPath, "data","metadata.json"), cellDataFile);
+        let cellDataFile = path.join(cellDocsFolderPath, "data", "cell.js");
+        fs.renameSync(path.join(cellDocsFolderPath, "data", "metadata.json"), cellDataFile);
         appendCellMetaData(cellDataFile)
     }
     return cellDetailsList;
@@ -108,14 +108,14 @@ function createCellDocsDir(cellDetailsList) {
 
 function findCellZipFiles(directory) {
     let files = fs.readdirSync(directory);
-    let cellZipFileList=[];
+    let cellZipFileList = [];
     for (let i = 0; i < files.length; i++) {
         let filepath = path.join(directory, files[i]);
         let filename = files[i];
         let stat = fs.lstatSync(filepath);
         if (stat.isDirectory()) {
             let file = findCellZipFiles(filepath);
-            if (file.length !== 0){
+            if (file.length !== 0) {
                 cellZipFileList = cellZipFileList.concat(file)
             }
         } else if (filename.indexOf('.zip') >= 0) {
@@ -129,22 +129,22 @@ function findCellZipFiles(directory) {
 function getCellDetails() {
     let cellZipFileList = findCellZipFiles(celleryRepoDir);
     let cellDetailsList = [];
-    for (let i=0;i<cellZipFileList.length;i++){
+    for (let i = 0; i < cellZipFileList.length; i++) {
         let filepath = cellZipFileList[i];
         let directoryList = path.dirname(filepath).split(path.sep);
         let cell = {
-            name:directoryList[directoryList.length - 2],
-            version:directoryList[directoryList.length - 1],
-            org:directoryList[directoryList.length - 3],
-            filepath:filepath,
-            filename:""
+            name: directoryList[directoryList.length - 2],
+            version: directoryList[directoryList.length - 1],
+            org: directoryList[directoryList.length - 3],
+            filepath: filepath,
+            filename: ""
         };
         cellDetailsList.push(cell);
     }
     return cellDetailsList;
 }
 
-function appendCellMetaData (cellDataFile){
+function appendCellMetaData(cellDataFile) {
     let data = fs.readFileSync(cellDataFile);
     let fd = fs.openSync(cellDataFile, 'w+');
     let buffer = new Buffer('window.__CELL_METADATA__ = ');
@@ -153,9 +153,9 @@ function appendCellMetaData (cellDataFile){
     fs.closeSync(fd);
 }
 
-let deleteFolderRecursive = function(path) {
+let deleteFolderRecursive = function (path) {
     if (fs.existsSync(path)) {
-        fs.readdirSync(path).forEach(function(file, index){
+        fs.readdirSync(path).forEach(function (file, index) {
             let curPath = path + "/" + file;
             if (fs.lstatSync(curPath).isDirectory()) { // recurse
                 deleteFolderRecursive(curPath);
