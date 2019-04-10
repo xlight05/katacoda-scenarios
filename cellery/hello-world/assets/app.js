@@ -14,58 +14,111 @@
  * limitations under the License.
  */
 
-var express = require('express');
-var path = require('path');
-var fs=require('fs');
-var exec = require('child_process').exec;
+const express = require('express');
+const path = require('path');
+const fs = require('fs');
+const admZip = require('adm-zip');
+const fse = require("fs-extra");
 
-const temp = `/tmp/`;
+const assetsDir = "./assets";
+const docsStorageDir = `${assetsDir}/images`;
+const celleryRepoDir = '/root/.cellery/repo';
+const docsViewBaseFilesDir = '/usr/share/cellery/docs-view';
+
 const port = 9990;
-var app = express();
+let app = express();
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({extended: false}));
 
-app.use('/hello', function (req, res) {
-    exec("cellery view wso2cellery/cells-hello-world-webapp:0.1.0", function(err, stdout, stderr) {
-        console.log(stdout);
-    });
-    var docViewFiles = getCelleryDocsFolders();
-    var docViewFolder = getLastCreatedFolder(docViewFiles);
-    app.use(express.static(docViewFolder));
-    res.sendFile(path.join(docViewFolder, 'index.html'));
+const renderHelloWorldPage = (cell) => "<!DOCTYPE html>" +
+    "<html lang='en'>" +
+    "<head>" +
+    "<meta charset='utf-8'>" +
+    `<link rel="shortcut icon" href="/files/favicon.ico" type="image/x-icon"/>`+
+    "<title>Cellery Docs View</title>" +
+    "</head>" +
+    "<body>" +
+    `<h1>Cellery Docs View</h1>` +
+    '<ol type = "1">' +
+     generateCellListingHtml(cell) +
+    '</ol>' +
+    "</body>" +
+    "</html";
+
+function generateCellListingHtml(cell) {
+    let resultString = "";
+    for (let i = 0; i < cell.length; i++) {
+        resultString += `<li><a href=${cell[i].url} target="_blank">${cell[i].name}</a></li>`
+    }
+    return resultString;
+}
+
+app.use("/docs", function (req, res) {
+    createDocsViewFolder();
+    let cell = getDocsViewDirInfo();
+    res.send(renderHelloWorldPage(cell));
 });
 
-function getCelleryDocsFolders(){
-    var files=fs.readdirSync(temp);
-    var docViewFiles = [];
-    for(var i=0;i<files.length;i++){
-        var filepath=path.join(temp,files[i]);
-        var filename = files[i];
-        var stat = fs.lstatSync(filepath);
-        if (stat.isDirectory()){
-            if (filename.startsWith('cellery-docs-view')) {
-                docViewFiles.push(filepath)
+
+app.use('/files', express.static(assetsDir));
+
+function getDocsViewDirInfo() {
+    let dirInfoList = [];
+    let files = fs.readdirSync(docsStorageDir);
+    for (let i = 0; i < files.length; i++) {
+        let filepath = path.join(docsStorageDir, files[i]);
+        let stat = fs.lstatSync(filepath);
+        if (stat.isDirectory()) {
+            let cell = {
+                name: files[i],
+                url: path.join("/files/images", files[i])
+            };
+            dirInfoList.push(cell);
+        }
+    }
+    return dirInfoList;
+}
+
+function createDocsViewFolder() {
+    copyMetadataFromRepo(celleryRepoDir);
+}
+
+function copyMetadataFromRepo(directory) {
+    let files = fs.readdirSync(directory);
+    for (let i = 0; i < files.length; i++) {
+        let filepath = path.join(directory, files[i]);
+        let filename = files[i];
+        let stat = fs.lstatSync(filepath);
+        if (stat.isDirectory()) {
+            copyMetadataFromRepo(filepath)
+        } else if (filename.indexOf('.zip') >= 0) {
+            let directoryList = path.dirname(filepath).split(path.sep);
+            let cell = {
+                name:directoryList[directoryList.length - 2],
+                version:directoryList[directoryList.length - 1],
+                org:directoryList[directoryList.length - 3]
+            };
+            let cellDocsFolderName = path.join(docsStorageDir, `${cell.org}-${cell.name}-${cell.version}`);
+            if (!fs.existsSync(cellDocsFolderName)) {
+                fs.mkdirSync(cellDocsFolderName);
+                fse.copySync(docsViewBaseFilesDir, cellDocsFolderName);
+                let zip = new admZip(filepath);
+                zip.extractEntryTo("artifacts/cellery/metadata.json", path.join(cellDocsFolderName, "data"), false, true);
+                let cellDataFile = path.join(cellDocsFolderName, "data" , "cell.js");
+                fs.renameSync(path.join(cellDocsFolderName, "data","metadata.json"), cellDataFile);
+                let data = fs.readFileSync(cellDataFile);
+                let fd = fs.openSync(cellDataFile, 'w+');
+                let buffer = new Buffer('window.__CELL_METADATA__ = ');
+                fs.writeSync(fd, buffer, 0, buffer.length, 0);
+                fs.writeSync(fd, data, 0, data.length, buffer.length);
+                fs.closeSync(fd);
             }
         }
     }
-    return docViewFiles;
 }
 
-function getLastCreatedFolder (folderList) {
-    var latestFolderPath = folderList[0];
-    var latestFolderTime = folderList[0];
-    for(var i=0;i<folderList.length;i++){
-        var stat = fs.lstatSync(folderList[i]);
-        var currentFolderCreationTime = stat.ctime;
-        if (currentFolderCreationTime > latestFolderTime) {
-            latestFolderPath = folderList[i];
-            latestFolderTime = currentFolderCreationTime;
-        }
-    }
-    return latestFolderPath;
-}
 
-app.listen(port, () => console.log(`Hello World Web App is running on port ${port}!`));
+app.listen(port, () => console.log(`Docs view Service is running on port ${port}!`));
 
 module.exports = app;
