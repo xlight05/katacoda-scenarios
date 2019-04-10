@@ -31,7 +31,7 @@ let app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
-const renderHelloWorldPage = (cell) => "<!DOCTYPE html>" +
+const renderDocsViewPage = (cell) => "<!DOCTYPE html>" +
     "<html lang='en'>" +
     "<head>" +
     "<meta charset='utf-8'>" +
@@ -71,7 +71,10 @@ app.use("/docs", function (req, res) {
     try {
         createDocsViewFolder();
         let cell = getDocsViewDirInfo();
-        res.send(renderHelloWorldPage(cell));
+        if (cell.length === 1){
+            res.send(cell.url)
+        }
+        res.send(renderDocsViewPage(cell));
     }catch (e) {
         res.send(renderErrorPage());
     }
