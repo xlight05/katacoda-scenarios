@@ -60,7 +60,7 @@ sudo apt-get -y install nodejs
 
 echo "done" >> /root/katacoda-finished
 
-cd /root/view
+cd /root/docs-view
 npm install
 node app.js
 
