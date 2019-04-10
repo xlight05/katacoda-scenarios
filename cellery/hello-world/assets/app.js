@@ -62,56 +62,36 @@ const renderErrorPage = () => "<!DOCTYPE html>" +
 function generateCellListingHtml(cell) {
     let resultString = "";
     for (let i = 0; i < cell.length; i++) {
-        resultString += `<li><a href=${cell[i].url} target="_blank">${cell[i].name}</a></li>`
+        resultString += `<li><a href=/files/images/${cell[i].filename} target="_blank">${cell[i].org}/${cell[i].name}:${cell[i].version}</a></li>`
     }
     return resultString;
 }
 
 app.use("/docs", function (req, res) {
     try {
-        createDocsViewFolder();
-        let cell = getDocsViewDirInfo();
-        if (cell.length === 1){
-            res.sendFile(cell[0].url+'/index.html')
+        let cellDetailsList = getCellDetails();
+        if (!fs.existsSync(docsStorageDir)) {
+            fs.mkdirSync(docsStorageDir);
         }
-        res.send(renderDocsViewPage(cell));
+        let cellDocsViewInfoList = createCellDocsDir(cellDetailsList);
+        if (cellDocsViewInfoList.length === 1){
+            res.redirect("/files/images/"+cellDocsViewInfoList[0].filename);
+        }else {
+            res.send(renderDocsViewPage(cellDocsViewInfoList));
+        }
     }catch (e) {
+        console.log(e);
         res.send(renderErrorPage());
     }
 });
 
-
 app.use('/files', express.static(assetsDir));
-
-function getDocsViewDirInfo() {
-    let dirInfoList = [];
-    let files = fs.readdirSync(docsStorageDir);
-    for (let i = 0; i < files.length; i++) {
-        let filepath = path.join(docsStorageDir, files[i]);
-        let stat = fs.lstatSync(filepath);
-        if (stat.isDirectory()) {
-            let cell = {
-                name: files[i],
-                url: path.join("/files/images", files[i])
-            };
-            dirInfoList.push(cell);
-        }
-    }
-    return dirInfoList;
-}
-
-function createDocsViewFolder() {
-    let cellDetailsList = getCellDetails();
-    if (!fs.existsSync(docsStorageDir)) {
-        fs.mkdirSync(docsStorageDir);
-    }
-    createCellDocsDir(cellDetailsList)
-}
 
 function createCellDocsDir(cellDetailsList) {
     for (let i =0;i<cellDetailsList.length;i++){
         let cell = cellDetailsList[i];
         let cellDocsFolderPath = path.join(docsStorageDir, `${cell.org}-${cell.name}-${cell.version}`);
+        cell.filename = `${cell.org}-${cell.name}-${cell.version}`;
         if (fs.existsSync(cellDocsFolderPath)) {
             deleteFolderRecursive(cellDocsFolderPath)
         }
@@ -123,6 +103,7 @@ function createCellDocsDir(cellDetailsList) {
         fs.renameSync(path.join(cellDocsFolderPath, "data","metadata.json"), cellDataFile);
         appendCellMetaData(cellDataFile)
     }
+    return cellDetailsList;
 }
 
 function findCellZipFiles(directory) {
@@ -155,7 +136,8 @@ function getCellDetails() {
             name:directoryList[directoryList.length - 2],
             version:directoryList[directoryList.length - 1],
             org:directoryList[directoryList.length - 3],
-            filepath:filepath
+            filepath:filepath,
+            filename:""
         };
         cellDetailsList.push(cell);
     }
