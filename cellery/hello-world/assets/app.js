@@ -72,7 +72,7 @@ app.use("/docs", function (req, res) {
         createDocsViewFolder();
         let cell = getDocsViewDirInfo();
         if (cell.length === 1){
-            res.send(cell[0].url)
+            res.sendFile(cell[0].url+'/index.html')
         }
         res.send(renderDocsViewPage(cell));
     }catch (e) {
