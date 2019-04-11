@@ -28,8 +28,8 @@ rm -r samples
 # git clone https://github.com/wso2-cellery/mesh-observability
 
 sudo apt-get remove -y cellery
-wget https://wso2.org/jenkins/job/cellery/job/sdk/lastSuccessfulBuild/artifact/installers/ubuntu-x64/target/cellery-ubuntu-x64-4e70ed4f5db694e4d3ceb1154db257104d11707b.deb
-sudo dpkg -i cellery-ubuntu-x64-4e70ed4f5db694e4d3ceb1154db257104d11707b.deb
+wget https://wso2.org/jenkins/job/cellery/job/sdk/lastSuccessfulBuild/artifact/installers/ubuntu-x64/target/cellery-ubuntu-x64-cc2562905d913e7720b7be61e28a0e3d4a92d0a2.deb
+sudo dpkg -i cellery-ubuntu-x64-cc2562905d913e7720b7be61e28a0e3d4a92d0a2.deb
 
 download_path=${DOWNLOAD_PATH:-tmp-cellery}
 distribution_url=${GIT_DISTRIBUTION_URL:-https://github.com/wso2-cellery/distribution/archive}
@@ -180,6 +180,6 @@ rm cellery-setup.log
 rm -r distribution
 rm -r mesh-observability
 rm -r tmp-cellery
-rm cellery-ubuntu-x64-4e70ed4f5db694e4d3ceb1154db257104d11707b.deb
+rm cellery-ubuntu-x64-cc2562905d913e7720b7be61e28a0e3d4a92d0a2.deb
 
 echo "done" >> /root/katacoda-finished
