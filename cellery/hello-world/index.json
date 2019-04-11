@@ -60,6 +60,11 @@
           "file": "favicon.ico",
           "target": "/root/docs-view/assets",
           "chmod": "+x"
+        },
+        {
+          "file": "service-nodeport.yaml",
+          "target": "/usr/local/bin/",
+          "chmod": "+x"
         }
       ]
     }
