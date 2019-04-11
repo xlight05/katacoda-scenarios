@@ -18,8 +18,6 @@
 # ------------------------------------------------------------------------
 launch.sh
 
-git clone https://github.com/wso2-cellery/distribution.git
-
 sudo apt-get remove -y cellery
 wget https://wso2.org/jenkins/job/cellery/job/sdk/124/artifact/installers/ubuntu-x64/target/cellery-ubuntu-x64-40772520b7f999ce62136c2417e138dfef8d1fab.deb
 sudo dpkg -i cellery-ubuntu-x64-40772520b7f999ce62136c2417e138dfef8d1fab.deb
