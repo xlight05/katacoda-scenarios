@@ -41,6 +41,11 @@
           "file": "kube-wait.sh",
           "target": "/usr/local/bin/",
           "chmod": "+x"
+        },
+        {
+          "file": "service-nodeport.yaml",
+          "target": "/usr/local/bin/",
+          "chmod": "+x"
         }
       ]
     }
