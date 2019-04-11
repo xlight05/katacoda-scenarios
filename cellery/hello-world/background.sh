@@ -117,7 +117,6 @@ source <(kubectl completion bash)
 kube-wait.sh
 
 rm cellery-setup.log
-rm -r distribution
 rm -r tmp-cellery
 rm cellery-ubuntu-x64-40772520b7f999ce62136c2417e138dfef8d1fab.deb
 
