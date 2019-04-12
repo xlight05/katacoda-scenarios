@@ -65,6 +65,31 @@
           "file": "service-nodeport.yaml",
           "target": "/usr/local/bin/",
           "chmod": "+x"
+        },
+        {
+          "file": "consent-mgt-config.xml",
+          "target": "/usr/tmp/is",
+          "chmod": "+x"
+        },
+        {
+          "file": "identity.xml",
+          "target": "/usr/tmp/is/identity",
+          "chmod": "+x"
+        },
+        {
+          "file": "master-datasources.xml",
+          "target": "/usr/tmp/is/datasources",
+          "chmod": "+x"
+        },
+        {
+          "file": "registry.xml",
+          "target": "/usr/tmp/is",
+          "chmod": "+x"
+        },
+        {
+          "file": "user-mgt.xml",
+          "target": "/usr/tmp/is",
+          "chmod": "+x"
         }
       ]
     }
