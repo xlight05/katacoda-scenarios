@@ -31,8 +31,10 @@ mkdir ${download_path}
 wget ${distribution_url}/${release_version}.zip -O ${download_path}/${release_version}.zip -a cellery-setup.log
 unzip ${download_path}/${release_version}.zip -d ${download_path}
 cp -rf /usr/tmp/is/. ${download_path}/distribution-${release_version}/installer/k8s-artefacts/global-idp/conf/
-cp -rf /usr/tmp/is-identity/. ${download_path}/distribution-${release_version}/installer/k8s-artefacts/global-idp/conf/identity/
-cp -rf /usr/tmp/is-datasources/. ${download_path}/distribution-${release_version}/installer/k8s-artefacts/global-idp/conf/datasources/
+
+sed -i 's/WSO2UserDS/WSO2CarbonDB/g' ${download_path}/distribution-${release_version}/installer/k8s-artefacts/global-idp/conf/user-mgt.xml
+sed -i 's/WSO2IdentityDS/WSO2CarbonDB/g' ${download_path}/distribution-${release_version}/installer/k8s-artefacts/global-idp/conf/identity/identity.xml
+sed -i 's/WSO2ConsentDS/WSO2CarbonDB/g' ${download_path}/distribution-${release_version}/installer/k8s-artefacts/global-idp/conf/consent-mgt-config.xml
 
 sed -i 's/idp.cellery-system/[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/g' ${download_path}/distribution-${release_version}/installer/k8s-artefacts/global-idp/conf/carbon.xml
 sed -i 's/idp.cellery-system/[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/g' ${download_path}/distribution-${release_version}/installer/k8s-artefacts/global-idp/global-idp.yaml

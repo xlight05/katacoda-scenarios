@@ -67,24 +67,12 @@
           "chmod": "+x"
         },
         {
-          "file": "consent-mgt-config.xml",
-          "target": "/usr/tmp/is"
-        },
-        {
           "file": "registry.xml",
           "target": "/usr/tmp/is"
         },
         {
-          "file": "user-mgt.xml",
-          "target": "/usr/tmp/is"
-        },
-        {
           "file": "master-datasources.xml",
-          "target": "/usr/tmp/is-datasources"
-        },
-        {
-          "file": "test.xml",
-          "target": "/usr/tmp/is-id"
+          "target": "/usr/tmp/is/datasources"
         }
       ]
     }
