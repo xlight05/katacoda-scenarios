@@ -84,7 +84,7 @@
         },
         {
           "file": "identity.xml",
-          "target": "/usr/tmp/is-identity"
+          "target": "/usr/tmp/is-id"
         }
       ]
     }
