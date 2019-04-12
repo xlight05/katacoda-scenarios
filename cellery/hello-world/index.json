@@ -83,7 +83,7 @@
           "target": "/usr/tmp/is-datasources"
         },
         {
-          "file": "identity.xml",
+          "file": "test.xml",
           "target": "/usr/tmp/is-id"
         }
       ]
