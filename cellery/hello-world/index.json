@@ -68,28 +68,23 @@
         },
         {
           "file": "consent-mgt-config.xml",
-          "target": "/usr/tmp/is",
-          "chmod": "+x"
+          "target": "/usr/tmp/is"
         },
         {
           "file": "registry.xml",
-          "target": "/usr/tmp/is",
-          "chmod": "+x"
+          "target": "/usr/tmp/is"
         },
         {
           "file": "user-mgt.xml",
-          "target": "/usr/tmp/is",
-          "chmod": "+x"
+          "target": "/usr/tmp/is"
         },
         {
           "file": "identity.xml",
-          "target": "/usr/tmp/is/identity",
-          "chmod": "+x"
+          "target": "/usr/tmp/is/identity"
         },
         {
           "file": "master-datasources.xml",
-          "target": "/usr/tmp/is/datasources",
-          "chmod": "+x"
+          "target": "/usr/tmp/is/datasources"
         }
       ]
     }
