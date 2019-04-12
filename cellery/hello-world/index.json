@@ -80,11 +80,11 @@
         },
         {
           "file": "identity.xml",
-          "target": "/usr/tmp/is/identity"
+          "target": "/usr/tmp/is-identity"
         },
         {
           "file": "master-datasources.xml",
-          "target": "/usr/tmp/is/datasources"
+          "target": "/usr/tmp/is-datasources"
         }
       ]
     }
