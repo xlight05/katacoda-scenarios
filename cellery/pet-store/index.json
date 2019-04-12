@@ -52,18 +52,22 @@
   },
   "files": [],
   "environment": {
-    "hidefinish": true,
+    "hidefinish": false,
     "uilayout": "editor-terminal",
     "uieditorpath": "/root/pet-store",
     "showdashboard": true,
     "dashboards": [
       {
         "name": "Web Cell",
-        "href": "https://[[HOST_SUBDOMAIN]]-2000-[[KATACODA_HOST]].environments.katacoda.com/items/"
+        "href": "https://[[HOST_SUBDOMAIN]]-2000-[[KATACODA_HOST]].environments.katacoda.com/"
       },
       {
         "name": "Observability",
-        "port": 4000
+        "href": "http://[[HOST_SUBDOMAIN]]-4000-[[KATACODA_HOST]].environments.katacoda.com/"
+      },
+      {
+        "name": "Docs View",
+        "href": "https://[[HOST_SUBDOMAIN]]-9990-[[KATACODA_HOST]].environments.katacoda.com/docs"
       }
     ]
   },

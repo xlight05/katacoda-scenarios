@@ -71,7 +71,7 @@
   },
   "files": [],
   "environment": {
-    "hidefinish": true,
+    "hidefinish": false,
     "uilayout": "editor-terminal",
     "uieditorpath": "/root/workspace",
     "showdashboard": true,

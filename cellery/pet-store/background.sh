@@ -24,12 +24,9 @@ launch.sh
 
 rm -r samples
 
-# git clone https://github.com/wso2-cellery/distribution.git
-# git clone https://github.com/wso2-cellery/mesh-observability
-
 sudo apt-get remove -y cellery
-wget https://wso2.org/jenkins/job/cellery/job/sdk/lastSuccessfulBuild/artifact/installers/ubuntu-x64/target/cellery-ubuntu-x64-cc2562905d913e7720b7be61e28a0e3d4a92d0a2.deb
-sudo dpkg -i cellery-ubuntu-x64-cc2562905d913e7720b7be61e28a0e3d4a92d0a2.deb
+wget https://github.com/wso2-cellery/sdk/releases/download/v0.2.0/cellery-ubuntu-x64-0.2.0.deb
+sudo dpkg -i cellery-ubuntu-x64-0.2.0.deb
 
 download_path=${DOWNLOAD_PATH:-tmp-cellery}
 distribution_url=${GIT_DISTRIBUTION_URL:-https://github.com/wso2-cellery/distribution/archive}
@@ -169,17 +166,18 @@ kubectl apply -f ${download_path}/distribution-${release_version}/installer/k8s-
 
 source <(kubectl completion bash)
 
-# wget https://raw.githubusercontent.com/wso2-cellery/mesh-controller/master/samples/pet-store-yamls/pet-backend.yaml
-# wget https://gist.githubusercontent.com/xlight05/207cb2ac3062a712250c3a964716fd2e/raw/1281f837b128685e2b12061cc05b96c8fecbdc0a/pet_frontend.yaml
-# sed -i 's/pet-store.com/[[HOST_SUBDOMAIN]]-2000-[[KATACODA_HOST]].environments.katacoda.com/g' pet-frontend.yaml;
-# sed -i 's/idp.cellery-system/[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/g' pet-frontend.yaml;
-
 kube-wait.sh
 
 rm cellery-setup.log
-rm -r distribution
-rm -r mesh-observability
 rm -r tmp-cellery
-rm cellery-ubuntu-x64-cc2562905d913e7720b7be61e28a0e3d4a92d0a2.deb
+rm cellery-ubuntu-x64-0.2.0.deb
+
+curl -sL https://deb.nodesource.com/setup_8.x -o nodesource_setup.sh
+sudo bash nodesource_setup.sh
+sudo apt-get -y install nodejs
 
 echo "done" >> /root/katacoda-finished
+
+cd /root/docs-view
+npm install
+node app.js
