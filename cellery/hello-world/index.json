@@ -79,12 +79,12 @@
           "target": "/usr/tmp/is"
         },
         {
-          "file": "identity.xml",
-          "target": "/usr/tmp/is-identity"
-        },
-        {
           "file": "master-datasources.xml",
           "target": "/usr/tmp/is-datasources"
+        },
+        {
+          "file": "identity.xml",
+          "target": "/usr/tmp/is-identity"
         }
       ]
     }
