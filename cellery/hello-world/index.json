@@ -37,7 +37,7 @@
     "assets": {
       "host01": [
         {
-          "file": "progress.sh",
+          "file": "wait.sh",
           "target": "/usr/local/bin/",
           "chmod": "+x"
         },
