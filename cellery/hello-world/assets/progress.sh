@@ -23,7 +23,7 @@ show_progress()
     while true; do
         sudo grep -i "start" /root/katacoda-finished &> /dev/null
         if [[ "$?" -ne 0 ]]; then
-            echo -ne '#                    (0%)\r'
+            echo -ne '#                          (0%)\r'
         else 
             sudo grep -i "kubernetes" /root/katacoda-finished &> /dev/null
             if [[ "$?" -ne 0 ]]; then
