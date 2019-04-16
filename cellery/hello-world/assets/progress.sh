@@ -44,4 +44,7 @@ show_progress()
     echo "Cellery environment is ready"
 }
 
+
+
+
 show_progress
