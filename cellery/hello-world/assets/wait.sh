@@ -25,7 +25,7 @@ show_progress()
     local spinstr='\|/-'
     local temp
     while true; do
-        if sudo grep -i "done" /root/katacoda-finished
+        if sudo grep -i "done" /root/katacoda-finished &> /dev/null
         then
             break
         else
