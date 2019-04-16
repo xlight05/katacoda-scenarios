@@ -33,7 +33,6 @@ distribution_url=${GIT_DISTRIBUTION_URL:-https://github.com/wso2-cellery/distrib
 observability_url=${GIT_OBSERVABILITY_URL:-https://github.com/wso2-cellery/mesh-observability/archive}
 release_version=${RELEASE_VERSION:-master}
 
-#Download k8s artifacts
 mkdir ${download_path}
 wget ${distribution_url}/${release_version}.zip -O ${download_path}/${release_version}.zip -a cellery-setup.log
 unzip ${download_path}/${release_version}.zip -d ${download_path}
