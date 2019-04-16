@@ -18,4 +18,4 @@
 
 export JAVA_HOME="/usr/java/jdk8u202-b08/"
 export VHOST_NAME="[[HOST_SUBDOMAIN]]-2000-[[KATACODA_HOST]].environments.katacoda.com"
-sleep 2; wait.sh
+sleep 2; progress.sh

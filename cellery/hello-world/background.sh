@@ -16,6 +16,9 @@
 # limitations under the License
 #
 # ------------------------------------------------------------------------
+
+
+echo "start" >> /root/katacoda-finished
 launch.sh
 
 sudo apt-get remove -y cellery
@@ -32,6 +35,9 @@ wget ${distribution_url}/${release_version}.zip -O ${download_path}/${release_ve
 unzip ${download_path}/${release_version}.zip -d ${download_path}
 cp -rf /usr/tmp/is/. ${download_path}/distribution-${release_version}/installer/k8s-artefacts/global-idp/conf/
 
+echo "kubernetes" >> /root/katacoda-finished
+
+
 sed -i 's/WSO2UserDS/WSO2CarbonDB/g' ${download_path}/distribution-${release_version}/installer/k8s-artefacts/global-idp/conf/user-mgt.xml
 sed -i 's/WSO2IdentityDS/WSO2CarbonDB/g' ${download_path}/distribution-${release_version}/installer/k8s-artefacts/global-idp/conf/identity/identity.xml
 sed -i 's/WSO2ConsentDS/WSO2CarbonDB/g' ${download_path}/distribution-${release_version}/installer/k8s-artefacts/global-idp/conf/consent-mgt-config.xml
@@ -39,29 +45,29 @@ sed -i 's/WSO2ConsentDS/WSO2CarbonDB/g' ${download_path}/distribution-${release_
 sed -i 's/idp.cellery-system/[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/g' ${download_path}/distribution-${release_version}/installer/k8s-artefacts/global-idp/conf/carbon.xml
 sed -i 's/idp.cellery-system/[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/g' ${download_path}/distribution-${release_version}/installer/k8s-artefacts/global-idp/global-idp.yaml
 
-#Create folders required by the mysql PVC
-if [ -d /mnt/mysql ]; then
-    mv /mnt/mysql "/mnt/mysql.$(date +%s)"
-fi
-mkdir -p /mnt/mysql
-#Change the folder ownership to mysql server user.
-chown 999:999 /mnt/mysql
+# #Create folders required by the mysql PVC
+# if [ -d /mnt/mysql ]; then
+#     mv /mnt/mysql "/mnt/mysql.$(date +%s)"
+# fi
+# mkdir -p /mnt/mysql
+# #Change the folder ownership to mysql server user.
+# chown 999:999 /mnt/mysql
 
-declare -A config_params
-config_params["MYSQL_DATABASE_HOST"]="wso2apim-with-analytics-rdbms-service"
-config_params["DATABASE_USERNAME"]="cellery"
-db_passwd=$(cat /dev/urandom | env LC_CTYPE=C tr -dc a-zA-Z0-9 | head -c 16; echo)
-config_params["DATABASE_PASSWORD"]=$db_passwd
+# declare -A config_params
+# config_params["MYSQL_DATABASE_HOST"]="wso2apim-with-analytics-rdbms-service"
+# config_params["DATABASE_USERNAME"]="cellery"
+# db_passwd=$(cat /dev/urandom | env LC_CTYPE=C tr -dc a-zA-Z0-9 | head -c 16; echo)
+# config_params["DATABASE_PASSWORD"]=$db_passwd
 
-for param in "${!config_params[@]}"
-do
-    sed -i "s/$param/${config_params[$param]}/g" ${download_path}/distribution-${release_version}/installer/k8s-artefacts/global-idp/conf/datasources/master-datasources.xml
-done
+# for param in "${!config_params[@]}"
+# do
+#     sed -i "s/$param/${config_params[$param]}/g" ${download_path}/distribution-${release_version}/installer/k8s-artefacts/global-idp/conf/datasources/master-datasources.xml
+# done
 
-for param in "${!config_params[@]}"
-do
-    sed -i "s/$param/${config_params[$param]}/g" ${download_path}/distribution-${release_version}/installer/k8s-artefacts/mysql/dbscripts/init.sql
-done
+# for param in "${!config_params[@]}"
+# do
+#     sed -i "s/$param/${config_params[$param]}/g" ${download_path}/distribution-${release_version}/installer/k8s-artefacts/mysql/dbscripts/init.sql
+# done
 
 
 #Deploy Cellery k8s artifacts
@@ -131,7 +137,7 @@ curl -sL https://deb.nodesource.com/setup_8.x -o nodesource_setup.sh
 sudo bash nodesource_setup.sh
 sudo apt-get -y install nodejs
 
-echo "done" >> /root/katacoda-finished
+echo "idp" >> /root/katacoda-finished
 
 cd /root/docs-view
 npm install
