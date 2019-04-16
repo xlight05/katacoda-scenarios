@@ -24,7 +24,6 @@ show_progress()
         sudo grep -i "start" /root/katacoda-finished &> /dev/null
         if [[ "$?" -ne 0 ]]; then
             echo -ne '#                    (0%)\r'
-            echo -ne '\n'
         else 
             sudo grep -i "kubernetes" /root/katacoda-finished &> /dev/null
             if [[ "$?" -ne 0 ]]; then
@@ -33,6 +32,7 @@ show_progress()
                 sudo grep -i "idp" /root/katacoda-finished &> /dev/null
                 if [[ "$?" -ne 0 ]]; then
                     echo -ne '#######################   (100%)\r'
+                    echo -ne '\n'
                 else 
                     break
                 fi
