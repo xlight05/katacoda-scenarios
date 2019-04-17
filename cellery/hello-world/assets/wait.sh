@@ -34,16 +34,7 @@ show_progress()
             spinstr=${temp}${spinstr%"${temp}"}
             sleep "${delay}"
             printf "\b\b\b\b\b\b"
-            # fi
-            #   sudo grep -i "done" /root/katacoda-finished &> /dev/null
-            #   if [[ "$?" -ne 0 ]]; then
-            #     temp="${spinstr#?}"
-            #     printf " [%c]  " "${spinstr}"
-            #     spinstr=${temp}${spinstr%"${temp}"}
-            #     sleep "${delay}"
-            #     printf "\b\b\b\b\b\b"
-            #   else
-            #     break
+            echo -ne '#                          (0%)\r'
         fi
     done
     printf "    \b\b\b\b"
