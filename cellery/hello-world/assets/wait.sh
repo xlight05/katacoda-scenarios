@@ -56,6 +56,7 @@ show_progress()
         elif sudo grep -i "start" /root/katacoda-finished &> /dev/null
         then
             echo -ne '#                          (0%)\r'
+            
         fi
     done
     printf "    \b\b\b\b"

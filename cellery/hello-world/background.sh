@@ -126,6 +126,7 @@ kubectl apply -f /usr/local/bin/service-nodeport.yaml
 
 
 source <(kubectl completion bash)
+echo "apply" >> /root/katacoda-finished
 
 kube-wait.sh
 
