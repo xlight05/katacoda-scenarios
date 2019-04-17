@@ -33,6 +33,7 @@ release_version=${RELEASE_VERSION:-master}
 mkdir ${download_path}
 wget ${distribution_url}/${release_version}.zip -O ${download_path}/${release_version}.zip -a cellery-setup.log
 unzip ${download_path}/${release_version}.zip -d ${download_path}
+
 cp -rf /usr/tmp/is/. ${download_path}/distribution-${release_version}/installer/k8s-artefacts/global-idp/conf/
 
 echo "kube" >> /root/katacoda-finished

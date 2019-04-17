@@ -39,6 +39,12 @@ unzip ${download_path}/${release_version}.zip -d ${download_path}
 wget ${observability_url}/${release_version}.zip -O ${download_path}/${release_version}.zip -a cellery-setup.log
 unzip ${download_path}/${release_version}.zip -d ${download_path}
 
+cp -rf /usr/tmp/is/. ${download_path}/distribution-${release_version}/installer/k8s-artefacts/global-idp/conf/
+
+sed -i 's/WSO2UserDS/WSO2CarbonDB/g' ${download_path}/distribution-${release_version}/installer/k8s-artefacts/global-idp/conf/user-mgt.xml
+sed -i 's/WSO2IdentityDS/WSO2CarbonDB/g' ${download_path}/distribution-${release_version}/installer/k8s-artefacts/global-idp/conf/identity/identity.xml
+sed -i 's/WSO2ConsentDS/WSO2CarbonDB/g' ${download_path}/distribution-${release_version}/installer/k8s-artefacts/global-idp/conf/consent-mgt-config.xml
+
 sed -i 's/idp.cellery-system/[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/g' ${download_path}/distribution-${release_version}/installer/k8s-artefacts/global-idp/conf/carbon.xml
 sed -i 's/idp.cellery-system/[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/g' ${download_path}/distribution-${release_version}/installer/k8s-artefacts/global-idp/global-idp.yaml
 sed -i 's/idp.cellery-system/[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/g' ${download_path}/mesh-observability-${release_version}/components/global/portal/io.cellery.observability.ui/node-server/config/portal.json
@@ -58,33 +64,6 @@ sed -i 's/cellery-k8s-metrics/[[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environm
 sed -i 's/http:\/\/wso2sp-observability-api/https:\/\/[[HOST_SUBDOMAIN]]-6000-[[KATACODA_HOST]].environments.katacoda.com/g' ${download_path}/mesh-observability-${release_version}/components/global/portal/io.cellery.observability.ui/node-server/config/portal.json
 sed -i 's/wso2sp-observability-api/[[HOST_SUBDOMAIN]]-6000-[[KATACODA_HOST]].environments.katacoda.com/g' ${download_path}/distribution-${release_version}/installer/k8s-artefacts/observability/sp/sp-worker.yaml
 
-
-#Create folders required by the mysql PVC
-if [ -d /mnt/mysql ]; then
-    mv /mnt/mysql "/mnt/mysql.$(date +%s)"
-fi
-mkdir -p /mnt/mysql
-#Change the folder ownership to mysql server user.
-chown 999:999 /mnt/mysql
-
-declare -A config_params
-config_params["MYSQL_DATABASE_HOST"]="wso2apim-with-analytics-rdbms-service"
-config_params["DATABASE_USERNAME"]="cellery"
-db_passwd=$(cat /dev/urandom | env LC_CTYPE=C tr -dc a-zA-Z0-9 | head -c 16; echo)
-config_params["DATABASE_PASSWORD"]=$db_passwd
-
-for param in "${!config_params[@]}"
-do
-    sed -i "s/$param/${config_params[$param]}/g" ${download_path}/distribution-${release_version}/installer/k8s-artefacts/observability/sp/conf/deployment.yaml
-    sed -i "s/$param/${config_params[$param]}/g" ${download_path}/distribution-${release_version}/installer/k8s-artefacts/global-idp/conf/datasources/master-datasources.xml
-done
-
-for param in "${!config_params[@]}"
-do
-    sed -i "s/$param/${config_params[$param]}/g" ${download_path}/distribution-${release_version}/installer/k8s-artefacts/mysql/dbscripts/init.sql
-done
-
-
 #Deploy Cellery k8s artifacts
 #Create Cellery ns
 kubectl apply -f ${download_path}/distribution-${release_version}/installer/k8s-artefacts/system/ns-init.yaml
@@ -92,15 +71,6 @@ kubectl apply -f ${download_path}/distribution-${release_version}/installer/k8s-
 HOST_NAME=$(hostname | tr '[:upper:]' '[:lower:]')
 #label the node if k8s provider is kubeadm
 kubectl label nodes $HOST_NAME disk=local
-
-#Create mysql deployment
-kubectl create configmap mysql-dbscripts --from-file=${download_path}/distribution-${release_version}/installer/k8s-artefacts/mysql/dbscripts/ -n cellery-system
-kubectl apply -f ${download_path}/distribution-${release_version}/installer/k8s-artefacts/mysql/mysql-persistent-volumes-local.yaml -n cellery-system
-kubectl apply -f ${download_path}/distribution-${release_version}/installer/k8s-artefacts/mysql/mysql-persistent-volume-claim.yaml -n cellery-system
-kubectl apply -f ${download_path}/distribution-${release_version}/installer/k8s-artefacts/mysql/mysql-deployment.yaml -n cellery-system
-#Wait till the mysql deployment availability
-kubectl wait deployment/wso2apim-with-analytics-mysql-deployment --for condition=available --timeout=6000s -n cellery-system
-kubectl apply -f ${download_path}/distribution-${release_version}/installer/k8s-artefacts/mysql/mysql-service.yaml -n cellery-system
 
 #Create Istio deployment
 kubectl apply -f ${download_path}/distribution-${release_version}/installer/k8s-artefacts/system/istio-crds.yaml
@@ -137,17 +107,60 @@ sed -i 's/172.17.17.100/[[HOST_IP]]/g' /usr/local/bin/service-nodeport.yaml
 kubectl apply -f ${download_path}/distribution-${release_version}/installer/k8s-artefacts/system/mandatory.yaml
 kubectl apply -f /usr/local/bin/service-nodeport.yaml
 
+source <(kubectl completion bash)
+
+kube-wait.sh
+
+echo "done" >> /root/katacoda-finished
+
+#Create folders required by the mysql PVC
+if [ -d /mnt/mysql ]; then
+    mv /mnt/mysql "/mnt/mysql.$(date +%s)"
+fi
+mkdir -p /mnt/mysql
+#Change the folder ownership to mysql server user.
+chown 999:999 /mnt/mysql
+
+declare -A config_params
+config_params["MYSQL_DATABASE_HOST"]="wso2apim-with-analytics-rdbms-service"
+config_params["DATABASE_USERNAME"]="cellery"
+db_passwd=$(cat /dev/urandom | env LC_CTYPE=C tr -dc a-zA-Z0-9 | head -c 16; echo)
+config_params["DATABASE_PASSWORD"]=$db_passwd
+
+for param in "${!config_params[@]}"
+do
+    sed -i "s/$param/${config_params[$param]}/g" ${download_path}/distribution-${release_version}/installer/k8s-artefacts/observability/sp/conf/deployment.yaml
+    sed -i "s/$param/${config_params[$param]}/g" ${download_path}/distribution-${release_version}/installer/k8s-artefacts/global-idp/conf/datasources/master-datasources.xml
+done
+
+for param in "${!config_params[@]}"
+do
+    sed -i "s/$param/${config_params[$param]}/g" ${download_path}/distribution-${release_version}/installer/k8s-artefacts/mysql/dbscripts/init.sql
+done
+
+#Create mysql deployment
+kubectl create configmap mysql-dbscripts --from-file=${download_path}/distribution-${release_version}/installer/k8s-artefacts/mysql/dbscripts/ -n cellery-system
+kubectl apply -f ${download_path}/distribution-${release_version}/installer/k8s-artefacts/mysql/mysql-persistent-volumes-local.yaml -n cellery-system
+kubectl apply -f ${download_path}/distribution-${release_version}/installer/k8s-artefacts/mysql/mysql-persistent-volume-claim.yaml -n cellery-system
+kubectl apply -f ${download_path}/distribution-${release_version}/installer/k8s-artefacts/mysql/mysql-deployment.yaml -n cellery-system
+#Wait till the mysql deployment availability
+kubectl wait deployment/wso2apim-with-analytics-mysql-deployment --for condition=available --timeout=6000s -n cellery-system
+kubectl apply -f ${download_path}/distribution-${release_version}/installer/k8s-artefacts/mysql/mysql-service.yaml -n cellery-system
+
+curl -sL https://deb.nodesource.com/setup_8.x -o nodesource_setup.sh
+sudo bash nodesource_setup.sh
+sudo apt-get -y install nodejs
+
+cd /root/docs-view
+npm install
+nohup node app.js > output.log &
 
 #Observability
 #Create SP worker configmaps
 kubectl create configmap sp-worker-siddhi --from-file=${download_path}/mesh-observability-${release_version}/components/global/core/io.cellery.observability.siddhi.apps/src/main/siddhi -n cellery-system
 kubectl create configmap sp-worker-conf --from-file=${download_path}/distribution-${release_version}/installer/k8s-artefacts/observability/sp/conf -n cellery-system
-#kubectl create configmap sp-worker-bin --from-file=${download_path}/sp-worker/bin -n cellery-system
 #Create SP worker deployment
 kubectl apply -f ${download_path}/distribution-${release_version}/installer/k8s-artefacts/observability/sp/sp-worker.yaml -n cellery-system
-#Create SP dashboard configmaps
-#kubectl create configmap sp-dashboard-conf --from-file=${download_path}/status-dashboard/conf -n cellery-system
-#kubectl create configmap sp-worker-bin --from-file=sp-worker/bin -n cellery-system
 #Create observability portal deployment, service and ingress.
 kubectl create configmap observability-portal-config --from-file=${download_path}/mesh-observability-${release_version}/components/global/portal/io.cellery.observability.ui/node-server/config -n cellery-system
 kubectl apply -f ${download_path}/distribution-${release_version}/installer/k8s-artefacts/observability/portal/observability-portal.yaml -n cellery-system
@@ -163,20 +176,6 @@ kubectl create configmap k8s-metrics-grafana-dashboards-default --from-file=${do
 kubectl apply -f ${download_path}/distribution-${release_version}/installer/k8s-artefacts/observability/prometheus/k8s-metrics-prometheus.yaml -n cellery-system
 kubectl apply -f ${download_path}/distribution-${release_version}/installer/k8s-artefacts/observability/grafana/k8s-metrics-grafana.yaml -n cellery-system
 
-source <(kubectl completion bash)
-
-kube-wait.sh
-
 rm cellery-setup.log
 rm -r tmp-cellery
 rm cellery-ubuntu-x64-0.2.0.deb
-
-curl -sL https://deb.nodesource.com/setup_8.x -o nodesource_setup.sh
-sudo bash nodesource_setup.sh
-sudo apt-get -y install nodejs
-
-echo "done" >> /root/katacoda-finished
-
-cd /root/docs-view
-npm install
-node app.js

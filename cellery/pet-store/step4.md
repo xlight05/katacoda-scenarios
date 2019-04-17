@@ -12,7 +12,7 @@ Execute the following command to switch into frontend folder
 Build the pet-fe Cell. It will generate the required artifacts that are required to deploy your Cell  
 `cellery build pet-fe.bal wso2cellery/pet-fe-cell:0.2.0`{{execute}}
 
-#### Running the Petstore
+#### Running the Petstore Sample
 
 Run the pet-fe Cell. It will deploy the artifacts that are generated from the build command in kubernetes.  
 `cellery run wso2cellery/pet-fe-cell:0.2.0 -n pet-fe -l petStoreBackend:pet-be -d`{{execute}}
