@@ -55,8 +55,8 @@ sed -i 's/cellery-k8s-metrics/[[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environm
 
 
 #wso2sp-observability-api
-sed -i 's/wso2sp-observability-api/[[HOST_SUBDOMAIN]]-6000-[[KATACODA_HOST]].environments.katacoda.com/g' ${download_path}/mesh-observability-${release_version}/components/global/portal/io.cellery.observability.ui/node-server/config/portal.json
-sed -i 's/wso2sp-observability-api/[[HOST_SUBDOMAIN]]-6000-[[KATACODA_HOST]].environments.katacoda.com/g' ${download_path}/distribution-${release_version}/installer/k8s-artefacts/observability/sp/sp-worker.yaml
+sed -i 's/wso2sp-observability-api/https://[[HOST_SUBDOMAIN]]-6000-[[KATACODA_HOST]].environments.katacoda.com/g' ${download_path}/mesh-observability-${release_version}/components/global/portal/io.cellery.observability.ui/node-server/config/portal.json
+sed -i 's/wso2sp-observability-api/https://[[HOST_SUBDOMAIN]]-6000-[[KATACODA_HOST]].environments.katacoda.com/g' ${download_path}/distribution-${release_version}/installer/k8s-artefacts/observability/sp/sp-worker.yaml
 
 
 #Create folders required by the mysql PVC
