@@ -34,7 +34,6 @@ show_progress()
             spinstr=${temp}${spinstr%"${temp}"}
             sleep "${delay}"
             printf "\b\b\b\b\b\b"
-            echo -ne '#                          (0%)\r'
         fi
     done
     printf "    \b\b\b\b"
