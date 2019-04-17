@@ -35,7 +35,7 @@ wget ${distribution_url}/${release_version}.zip -O ${download_path}/${release_ve
 unzip ${download_path}/${release_version}.zip -d ${download_path}
 cp -rf /usr/tmp/is/. ${download_path}/distribution-${release_version}/installer/k8s-artefacts/global-idp/conf/
 
-echo "kubernetes" >> /root/katacoda-finished
+echo "kube" >> /root/katacoda-finished
 
 
 sed -i 's/WSO2UserDS/WSO2CarbonDB/g' ${download_path}/distribution-${release_version}/installer/k8s-artefacts/global-idp/conf/user-mgt.xml
