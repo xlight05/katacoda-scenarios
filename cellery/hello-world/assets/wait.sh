@@ -24,7 +24,7 @@ show_progress()
     local -r delay='0.75'
     local spinstr='\|/-'
     local temp
-    while true; do
+    while true; do 
         if sudo grep -i "done" /root/katacoda-finished &> /dev/null
         then
             break
