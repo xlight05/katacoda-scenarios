@@ -42,11 +42,7 @@
 # }
 show_progress()
 {
-    echo -n "Preparing the environment"
-    local -r pid="${1}"
-    local -r delay='0.75'
-    local spinstr='\|/-'
-    local temp
+    echo "Preparing the environment"
     while true; do
         if sudo grep -i "done" /root/katacoda-finished &> /dev/null
         then
