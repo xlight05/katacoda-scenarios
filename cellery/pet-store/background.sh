@@ -155,7 +155,7 @@ cd /root/docs-view
 npm install
 nohup node app.js > output.log &
 
-echo "done" >> /root/katacoda-docs
+cd ~/
 
 #Observability
 #Create SP worker configmaps
