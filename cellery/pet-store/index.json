@@ -46,6 +46,29 @@
           "file": "service-nodeport.yaml",
           "target": "/usr/local/bin/",
           "chmod": "+x"
+        },
+        {
+          "file": "app.js",
+          "target": "/root/docs-view",
+          "chmod": "+x"
+        },
+        {
+          "file": "package.json",
+          "target": "/root/docs-view",
+          "chmod": "+x"
+        },
+        {
+          "file": "favicon.ico",
+          "target": "/root/docs-view/assets",
+          "chmod": "+x"
+        },
+        {
+          "file": "registry.xml",
+          "target": "/usr/tmp/is"
+        },
+        {
+          "file": "master-datasources.xml",
+          "target": "/usr/tmp/is/datasources"
         }
       ]
     }
