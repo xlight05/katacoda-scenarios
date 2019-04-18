@@ -157,7 +157,7 @@ nohup node app.js > output.log &
 
 cd ~/
 
-#Observability
+#Observability  
 #Create SP worker configmaps
 kubectl create configmap sp-worker-siddhi --from-file=${download_path}/mesh-observability-${release_version}/components/global/core/io.cellery.observability.siddhi.apps/src/main/siddhi -n cellery-system
 kubectl create configmap sp-worker-conf --from-file=${download_path}/distribution-${release_version}/installer/k8s-artefacts/observability/sp/conf -n cellery-system
