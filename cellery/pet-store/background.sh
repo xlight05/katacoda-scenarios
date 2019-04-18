@@ -155,6 +155,8 @@ cd /root/docs-view
 npm install
 nohup node app.js > output.log &
 
+echo "done" >> /root/katacoda-docs
+
 #Observability
 #Create SP worker configmaps
 kubectl create configmap sp-worker-siddhi --from-file=${download_path}/mesh-observability-${release_version}/components/global/core/io.cellery.observability.siddhi.apps/src/main/siddhi -n cellery-system
