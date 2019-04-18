@@ -75,7 +75,6 @@
   },
   "files": [],
   "environment": {
-    "hidefinish": false,
     "uilayout": "editor-terminal",
     "uieditorpath": "/root/pet-store",
     "showdashboard": true,
