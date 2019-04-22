@@ -46,31 +46,6 @@ sed -i 's/WSO2ConsentDS/WSO2CarbonDB/g' ${download_path}/distribution-${release_
 sed -i 's/idp.cellery-system/[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/g' ${download_path}/distribution-${release_version}/installer/k8s-artefacts/global-idp/conf/carbon.xml
 sed -i 's/idp.cellery-system/[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/g' ${download_path}/distribution-${release_version}/installer/k8s-artefacts/global-idp/global-idp.yaml
 
-# #Create folders required by the mysql PVC
-# if [ -d /mnt/mysql ]; then
-#     mv /mnt/mysql "/mnt/mysql.$(date +%s)"
-# fi
-# mkdir -p /mnt/mysql
-# #Change the folder ownership to mysql server user.
-# chown 999:999 /mnt/mysql
-
-# declare -A config_params
-# config_params["MYSQL_DATABASE_HOST"]="wso2apim-with-analytics-rdbms-service"
-# config_params["DATABASE_USERNAME"]="cellery"
-# db_passwd=$(cat /dev/urandom | env LC_CTYPE=C tr -dc a-zA-Z0-9 | head -c 16; echo)
-# config_params["DATABASE_PASSWORD"]=$db_passwd
-
-# for param in "${!config_params[@]}"
-# do
-#     sed -i "s/$param/${config_params[$param]}/g" ${download_path}/distribution-${release_version}/installer/k8s-artefacts/global-idp/conf/datasources/master-datasources.xml
-# done
-
-# for param in "${!config_params[@]}"
-# do
-#     sed -i "s/$param/${config_params[$param]}/g" ${download_path}/distribution-${release_version}/installer/k8s-artefacts/mysql/dbscripts/init.sql
-# done
-
-
 #Deploy Cellery k8s artifacts
 #Create Cellery ns
 kubectl apply -f ${download_path}/distribution-${release_version}/installer/k8s-artefacts/system/ns-init.yaml

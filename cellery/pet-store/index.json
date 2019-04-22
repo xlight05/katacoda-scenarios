@@ -21,6 +21,8 @@
       },
       {
         "title": "Observability",
+        "courseData": "wait-obs-back.sh",
+        "code": "wait-obs.sh",
         "text": "step5.md"
       }
     ],

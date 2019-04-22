@@ -27,10 +27,11 @@ function __wait-until-pods-ready() {
         if __pods_ready $pods; then
             return 0
         fi
-        sleep "$interval"
+        sleep 3
     done
     return 1
 }
 
 __wait-until-pods-ready
+echo "done" >> /root/obs-finished
 # vim: ft=sh :
