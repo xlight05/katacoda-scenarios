@@ -23,7 +23,7 @@ function __wait-until-pods-ready() {
     local period interval i pods
     while :
     do
-        pods="$(kubectl get po -n cellery-system -o 'jsonpath={.items[*].metadata.name}')"
+        pods="$(kubectl get po -n cellery-system -l app=k8s-metrics-prometheus -o 'jsonpath={.items[*].metadata.name}')"
         if __pods_ready $pods; then
             return 0
         fi
