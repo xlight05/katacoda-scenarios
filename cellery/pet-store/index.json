@@ -21,8 +21,8 @@
       },
       {
         "title": "Observability",
-        "courseData": "wait-obs-back.sh",
-        "code": "wait-obs.sh",
+        "courseData": "step5-back.sh",
+        "code": "step5-fore.sh",
         "text": "step5.md"
       }
     ],
@@ -71,6 +71,14 @@
         {
           "file": "master-datasources.xml",
           "target": "/usr/tmp/is/datasources"
+        },
+        {
+          "file": "wait-obs-back.sh",
+          "target": "/usr/local/bin"
+        },
+        {
+          "file": "wait-obs.sh",
+          "target": "/usr/local/bin"
         }
       ]
     }
