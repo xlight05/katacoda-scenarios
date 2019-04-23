@@ -74,11 +74,13 @@
         },
         {
           "file": "wait-obs-back.sh",
-          "target": "/usr/local/bin"
+          "target": "/usr/local/bin",
+          "chmod": "+x"
         },
         {
           "file": "wait-obs.sh",
-          "target": "/usr/local/bin"
+          "target": "/usr/local/bin",
+          "chmod": "+x"
         }
       ]
     }
