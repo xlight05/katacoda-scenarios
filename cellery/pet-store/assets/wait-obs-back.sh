@@ -5,22 +5,22 @@ set -e
 function __is_pod_ready() {
     status="$(kubectl get po "$1" -n cellery-system -o 'jsonpath={.status.conditions[?(@.type=="Ready")].status}')"
     echo "in pod check" >> /root/obs
-    if [ $status == "True" ] 
-    then 
+    if [ $status == "True" ]
+    then
         return 0
-    elif [ $status == "False" ] 
-    then 
+    elif [ $status == "False" ]
+    then
         return 1
-    else 
+    else
         return 1
     fi
 }
 
 function __pods_ready() {
     local pod
-        echo "in pods check" >> /root/obs
+    echo "in pods check" >> /root/obs
     [[ "$#" == 0 ]] && return 0
-
+    
     for pod in $pods; do
         __is_pod_ready "$pod" || return 1
     done
@@ -34,8 +34,11 @@ function __wait-until-pods-ready() {
     while :
     do
         pods="$(kubectl get po -n cellery-system -l app=k8s-metrics-prometheus -o 'jsonpath={.items[*].metadata.name}')"
-        if __pods_ready $pods; then
-            return 0
+        if [ $pods != "" ]
+        then
+            if __pods_ready $pods; then
+                return 0
+            fi
         fi
         sleep 3
     done
