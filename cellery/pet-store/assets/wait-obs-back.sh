@@ -12,7 +12,7 @@ function __pods_ready() {
     [[ "$#" == 0 ]] && return 0
     
     for pod in $pods; do
-        __is_pod_ready "$pod" || return 1
+        __is_pod_ready "$pod"
     done
     
     return 0
