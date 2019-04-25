@@ -4,15 +4,15 @@ set -e
 
 function __is_pod_ready() {
     status="$(kubectl get po "$1" -n cellery-system -o 'jsonpath={.status.conditions[?(@.type=="Ready")].status}')"
-
+    echo $status >> /root/test/obs
     if [ $status == "True" ] 
     then 
-        return 1
+        return 0
     elif [ $status == "False" ] 
     then 
-        return 0
+        return 1
     else 
-        return 0
+        return 1
     fi
     # [[ "$(kubectl get po "$1" -n cellery-system -o 'jsonpath={.status.conditions[?(@.type=="Ready")].status}')" == 'True' ]]
 
