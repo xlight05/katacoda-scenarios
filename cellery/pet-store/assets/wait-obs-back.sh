@@ -7,12 +7,12 @@ function __is_pod_ready() {
 
     if [ $status == "True" ] 
     then 
-        return 0
+        return 1
     elif [ $status == "False" ] 
     then 
-        return 1
+        return 0
     else 
-        return 1
+        return 0
     fi
     # [[ "$(kubectl get po "$1" -n cellery-system -o 'jsonpath={.status.conditions[?(@.type=="Ready")].status}')" == 'True' ]]
 
