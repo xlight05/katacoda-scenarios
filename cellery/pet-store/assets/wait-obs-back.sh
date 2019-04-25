@@ -3,7 +3,19 @@
 set -e
 
 function __is_pod_ready() {
-    [[ "$(kubectl get po "$1" -n cellery-system -o 'jsonpath={.status.conditions[?(@.type=="Ready")].status}')" == 'True' ]]
+    status="$(kubectl get po "$1" -n cellery-system -o 'jsonpath={.status.conditions[?(@.type=="Ready")].status}')"
+
+    if [ $status == "True" ] 
+    then 
+        return 0
+    elif [ $status == "False" ] 
+    then 
+        return 1
+    else 
+        return 1
+    fi
+    # [[ "$(kubectl get po "$1" -n cellery-system -o 'jsonpath={.status.conditions[?(@.type=="Ready")].status}')" == 'True' ]]
+
 }
 
 function __pods_ready() {
@@ -12,7 +24,7 @@ function __pods_ready() {
     [[ "$#" == 0 ]] && return 0
     
     for pod in $pods; do
-        __is_pod_ready "$pod"
+        __is_pod_ready "$pod" || return 1
     done
     
     return 0
