@@ -14,8 +14,6 @@ function __is_pod_ready() {
     else 
         return 1
     fi
-    # [[ "$(kubectl get po "$1" -n cellery-system -o 'jsonpath={.status.conditions[?(@.type=="Ready")].status}')" == 'True' ]]
-
 }
 
 function __pods_ready() {
@@ -24,7 +22,6 @@ function __pods_ready() {
     [[ "$#" == 0 ]] && return 0
 
     for pod in $pods; do
-    echo "here" >> /root/test/obs
         __is_pod_ready "$pod" || return 1
     done
     
@@ -45,5 +42,6 @@ function __wait-until-pods-ready() {
     return 1
 }
 
+echo "here" >> /root/obs
 __wait-until-pods-ready
 # vim: ft=sh :
