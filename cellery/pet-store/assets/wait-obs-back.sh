@@ -45,5 +45,4 @@ function __wait-until-pods-ready() {
 }
 
 __wait-until-pods-ready
-echo "done" >> /root/obs-finished
 # vim: ft=sh :
