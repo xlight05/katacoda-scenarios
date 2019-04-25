@@ -38,6 +38,7 @@ show_progress()
   done
   printf "    \b\b\b\b"
   echo ""
+  echo -n "Cellery Observability portal is ready"
 }
 
 show_progress
