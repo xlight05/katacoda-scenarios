@@ -22,8 +22,9 @@ function __pods_ready() {
     local pod
     
     [[ "$#" == 0 ]] && return 0
-    
+
     for pod in $pods; do
+    echo "here" >> /root/test/obs
         __is_pod_ready "$pod" || return 1
     done
     
