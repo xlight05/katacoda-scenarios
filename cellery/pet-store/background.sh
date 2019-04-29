@@ -20,6 +20,10 @@
 git clone https://github.com/wso2-cellery/samples
 ( cd samples/ ; git checkout v0.2.0 )
 mv samples/pet-store /root
+rm /root/pet-store/Makefile
+rm /root/pet-store/README.md
+rm /root/pet-store/pet-be-cell-description.md
+rm /root/pet-store/pet-fe-cell-description.md
 
 launch.sh
 
