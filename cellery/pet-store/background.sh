@@ -19,6 +19,7 @@
 
 git clone https://github.com/wso2-cellery/samples
 mv samples/pet-store /root
+( cd /root/pet-store ; git checkout v0.2.0 )
 
 launch.sh
 
