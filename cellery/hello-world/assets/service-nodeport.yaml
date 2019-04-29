@@ -29,9 +29,20 @@ spec:
       port: 3000
       targetPort: 80
       protocol: TCP
+    - name: cellery-dashboard
+      port: 4000
+      targetPort: 80
+      protocol: TCP
+    - name: cellery-k8s-metrices
+      port: 5000
+      targetPort: 80
+      protocol: TCP
+    - name: wso2sp-observability-api
+      port: 6000
+      targetPort: 80
+      protocol: TCP
   selector:
     app.kubernetes.io/name: ingress-nginx
     app.kubernetes.io/part-of: ingress-nginx
 
 ---
-
