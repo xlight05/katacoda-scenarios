@@ -113,6 +113,16 @@ kube-wait.sh
 
 echo "done" >> /root/katacoda-finished
 
+curl -sL https://deb.nodesource.com/setup_8.x -o nodesource_setup.sh
+sudo bash nodesource_setup.sh
+sudo apt-get -y install nodejs
+
+cd /root/docs-view
+npm install
+nohup node app.js > output.log &
+
+cd ~/
+
 #Create folders required by the mysql PVC
 if [ -d /mnt/mysql ]; then
     mv /mnt/mysql "/mnt/mysql.$(date +%s)"
@@ -147,15 +157,7 @@ kubectl apply -f ${download_path}/distribution-${release_version}/installer/k8s-
 kubectl wait deployment/wso2apim-with-analytics-mysql-deployment --for condition=available --timeout=6000s -n cellery-system
 kubectl apply -f ${download_path}/distribution-${release_version}/installer/k8s-artefacts/mysql/mysql-service.yaml -n cellery-system
 
-curl -sL https://deb.nodesource.com/setup_8.x -o nodesource_setup.sh
-sudo bash nodesource_setup.sh
-sudo apt-get -y install nodejs
-
-cd /root/docs-view
-npm install
-nohup node app.js > output.log &
-
-cd ~/
+sleep 10
 
 #Observability  
 #Create SP worker configmaps

@@ -96,6 +96,40 @@ kube-wait.sh
 
 echo "done" >> /root/katacoda-finished
 
+curl -sL https://deb.nodesource.com/setup_8.x -o nodesource_setup.sh
+sudo bash nodesource_setup.sh
+sudo apt-get -y install nodejs
+
+cd /root/docs-view
+npm install
+nohup node app.js > output.log &
+
+cd ~/
+
+observability_url=${GIT_OBSERVABILITY_URL:-https://github.com/wso2-cellery/mesh-observability/archive}
+release_version=${RELEASE_VERSION:-master}
+
+wget ${observability_url}/${release_version}.zip -O ${download_path}/${release_version}.zip -a cellery-setup.log
+unzip ${download_path}/${release_version}.zip -d ${download_path}
+
+sed -i 's/idp.cellery-system/[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/g' ${download_path}/mesh-observability-${release_version}/components/global/portal/io.cellery.observability.ui/node-server/config/portal.json
+
+#cellery-dashboard
+sed -i 's/cellery-dashboard/[[HOST_SUBDOMAIN]]-4000-[[KATACODA_HOST]].environments.katacoda.com/g' ${download_path}/distribution-${release_version}/installer/k8s-artefacts/observability/portal/observability-portal.yaml
+sed -i 's/cellery-dashboard/[[HOST_SUBDOMAIN]]-4000-[[KATACODA_HOST]].environments.katacoda.com/g' ${download_path}/distribution-${release_version}/installer/k8s-artefacts/observability/sp/conf/deployment.yaml
+sed -i 's/cellery-dashboard/[[HOST_SUBDOMAIN]]-4000-[[KATACODA_HOST]].environments.katacoda.com/g' ${download_path}/mesh-observability-${release_version}/components/global/portal/io.cellery.observability.ui/node-server/config/portal.json
+
+#cellery-k8s-metrics
+sed -i 's/cellery-k8s-metrics/[[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environments.katacoda.com/g' ${download_path}/distribution-${release_version}/installer/k8s-artefacts/observability/grafana/config/grafana.ini
+sed -i 's/cellery-k8s-metrics/[[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environments.katacoda.com/g' ${download_path}/distribution-${release_version}/installer/k8s-artefacts/observability/grafana/k8s-metrics-grafana.yaml
+sed -i 's/cellery-k8s-metrics/[[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environments.katacoda.com/g' ${download_path}/mesh-observability-${release_version}/components/global/portal/io.cellery.observability.ui/node-server/config/portal.json
+
+
+#wso2sp-observability-api
+sed -i 's/http:\/\/wso2sp-observability-api/https:\/\/[[HOST_SUBDOMAIN]]-6000-[[KATACODA_HOST]].environments.katacoda.com/g' ${download_path}/mesh-observability-${release_version}/components/global/portal/io.cellery.observability.ui/node-server/config/portal.json
+sed -i 's/wso2sp-observability-api/[[HOST_SUBDOMAIN]]-6000-[[KATACODA_HOST]].environments.katacoda.com/g' ${download_path}/distribution-${release_version}/installer/k8s-artefacts/observability/sp/sp-worker.yaml
+
+
 #Create folders required by the mysql PVC
 if [ -d /mnt/mysql ]; then
     mv /mnt/mysql "/mnt/mysql.$(date +%s)"
@@ -130,15 +164,7 @@ kubectl apply -f ${download_path}/distribution-${release_version}/installer/k8s-
 kubectl wait deployment/wso2apim-with-analytics-mysql-deployment --for condition=available --timeout=6000s -n cellery-system
 kubectl apply -f ${download_path}/distribution-${release_version}/installer/k8s-artefacts/mysql/mysql-service.yaml -n cellery-system
 
-curl -sL https://deb.nodesource.com/setup_8.x -o nodesource_setup.sh
-sudo bash nodesource_setup.sh
-sudo apt-get -y install nodejs
-
-cd /root/docs-view
-npm install
-nohup node app.js > output.log &
-
-cd ~/
+sleep 10
 
 #Observability  
 #Create SP worker configmaps
