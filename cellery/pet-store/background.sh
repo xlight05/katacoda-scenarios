@@ -18,8 +18,8 @@
 # ------------------------------------------------------------------------
 
 git clone https://github.com/wso2-cellery/samples
+( cd samples/ ; git checkout v0.2.0 )
 mv samples/pet-store /root
-( cd /root/pet-store ; git checkout v0.2.0 )
 
 launch.sh
 
