@@ -1,5 +1,5 @@
 {
-  "title": "Pet Store",
+  "title": "Hello World",
   "description": "Demonstrates how to deploy a simple Hello world web page with cellery",
   "details": {
     "steps": [
@@ -8,26 +8,24 @@
         "text": "step1.md"
       },
       {
-        "title": "Application Overview",
+        "title": "Cellery demonstration",
         "text": "step2.md"
       },
       {
-        "title": "Cell Files",
+        "title": "Initializing the project",
         "text": "step3.md"
       },
       {
-        "title": "Deploying Cells",
+        "title": "Cell explanation",
         "text": "step4.md"
       },
       {
-        "title": "Running the Cell",
-        "text": "runcell.md"
+        "title": "Deploying the cell",
+        "text": "step6.md"
       },
       {
-        "title": "Observability",
-        "courseData": "step5-back.sh",
-        "code": "step5-fore.sh",
-        "text": "step5.md"
+        "title": "Push your image to Docker Hub (Optional)",
+        "text": "step7.md"
       }
     ],
     "intro": {
@@ -35,6 +33,9 @@
       "courseData": "background.sh",
       "code": "foreground.sh",
       "credits": ""
+    },
+    "finish": {
+      "text": "finish.md"
     },
     "assets": {
       "host01": [
@@ -45,11 +46,6 @@
         },
         {
           "file": "kube-wait.sh",
-          "target": "/usr/local/bin/",
-          "chmod": "+x"
-        },
-        {
-          "file": "service-nodeport.yaml",
           "target": "/usr/local/bin/",
           "chmod": "+x"
         },
@@ -69,22 +65,17 @@
           "chmod": "+x"
         },
         {
+          "file": "service-nodeport.yaml",
+          "target": "/usr/local/bin/",
+          "chmod": "+x"
+        },
+        {
           "file": "registry.xml",
           "target": "/usr/tmp/is"
         },
         {
           "file": "master-datasources.xml",
           "target": "/usr/tmp/is/datasources"
-        },
-        {
-          "file": "wait-obs-back.sh",
-          "target": "/usr/local/bin",
-          "chmod": "+x"
-        },
-        {
-          "file": "wait-obs.sh",
-          "target": "/usr/local/bin",
-          "chmod": "+x"
         }
       ]
     }
@@ -92,20 +83,20 @@
   "files": [],
   "environment": {
     "uilayout": "editor-terminal",
-    "uieditorpath": "/root/pet-store",
+    "uieditorpath": "/root/workspace",
     "showdashboard": true,
     "dashboards": [
       {
         "name": "Web Cell",
-        "href": "https://[[HOST_SUBDOMAIN]]-2000-[[KATACODA_HOST]].environments.katacoda.com/"
-      },
-      {
-        "name": "Observability",
-        "href": "http://[[HOST_SUBDOMAIN]]-4000-[[KATACODA_HOST]].environments.katacoda.com/"
+        "port": 2000
       },
       {
         "name": "Docs View",
         "href": "https://[[HOST_SUBDOMAIN]]-9990-[[KATACODA_HOST]].environments.katacoda.com/docs"
+      },
+      {
+        "name": "Observability",
+        "href": "http://[[HOST_SUBDOMAIN]]-4000-[[KATACODA_HOST]].environments.katacoda.com/"
       }
     ]
   },
