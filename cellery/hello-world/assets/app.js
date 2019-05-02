@@ -71,8 +71,7 @@ const renderErrorPage = () => "<!DOCTYPE html>" +
     `</div>` +
     `</header>` +
     `<div class="center">`+
-    `<h1>Cell Images List</h1>`+
-    `<h2>No Cells Available</h2>` +
+    `<h1>No Cells Available</h1>`+
     `</div>`+
     "</body>" +
     "</html";
