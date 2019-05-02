@@ -69,6 +69,16 @@
           "chmod": "+x"
         },
         {
+          "file": "style.css",
+          "target": "/root/docs-view/assets",
+          "chmod": "+x"
+        },
+        {
+          "file": "cellery-logo.svg",
+          "target": "/root/docs-view/assets",
+          "chmod": "+x"
+        },
+        {
           "file": "registry.xml",
           "target": "/usr/tmp/is"
         },
