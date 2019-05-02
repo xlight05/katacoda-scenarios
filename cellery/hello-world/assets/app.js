@@ -36,13 +36,22 @@ const renderDocsViewPage = (cell) => "<!DOCTYPE html>" +
     "<head>" +
     "<meta charset='utf-8'>" +
     `<link rel="shortcut icon" href="/files/favicon.ico" type="image/x-icon"/>` +
+    `<link rel="stylesheet" type="text/css" href="assets/style.css">` +
     "<title>Cellery Docs View</title>" +
     "</head>" +
     "<body>" +
-    `<h1>Cellery Docs View</h1>` +
-    '<ol type = "1">' +
+    `<header>` +
+    `<div class="line">` +
+    `<img class="imgrules" src="static/cellery-logo.svg" alt="cellery-logo">` +
+    `<h6 class="cellery-header">Image View</h6>` +
+    `</div>` +
+    `</header>` +
+    `<div class="center">`+
+    `<h1>Cell Images List</h1>`+
+    `<ol class="list-numbered">`+
     generateCellListingHtml(cell) +
     '</ol>' +
+    `</div>`+
     "</body>" +
     "</html";
 
